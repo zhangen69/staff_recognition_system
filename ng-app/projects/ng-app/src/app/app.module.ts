@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app.routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -17,6 +18,7 @@ import { StaffModule } from './staff/staff.module';
     BrowserModule,
     BrowserAnimationsModule,
     StorageModule.forRoot({ IDBNoWrap: true }),
+    AppRoutingModule,
     SharedModule,
     AdminModule,
     StaffModule,

@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { NewsfeedFormComponent } from './newsfeed/newsfeed-form/newsfeed-form.component';
 import { NewsfeedListComponent } from './newsfeed/newsfeed-list/newsfeed-list.component';
 import { NewsfeedDetailComponent } from './newsfeed/newsfeed-detail/newsfeed-detail.component';
@@ -12,13 +11,12 @@ import { ProfileTeamsComponent } from './profile/profile-teams/profile-teams.com
 import { ProfileSentComponent } from './profile/profile-sent/profile-sent.component';
 import { ProfileReceivedComponent } from './profile/profile-received/profile-received.component';
 import { ProfileAchievementsComponent } from './profile/profile-achievements/profile-achievements.component';
+import { StaffRoutingModule } from './staff.routing.module';
 
 
 
 @NgModule({
   declarations: [NewsfeedFormComponent, NewsfeedListComponent, NewsfeedDetailComponent, NewsfeedDashboardComponent, NewsfeedGameComponent, ProfileDashboardComponent, ProfileBadgesComponent, ProfileRewardsComponent, ProfileTeamsComponent, ProfileSentComponent, ProfileReceivedComponent, ProfileAchievementsComponent],
-  imports: [
-    CommonModule
-  ]
+  imports: [StaffRoutingModule]
 })
 export class StaffModule { }

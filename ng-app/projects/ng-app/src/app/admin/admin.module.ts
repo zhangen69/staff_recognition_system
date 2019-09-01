@@ -1,5 +1,5 @@
+import { AdminRoutingModule } from './admin.routing.module';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StaffFormComponent } from './staff/staff-form/staff-form.component';
 import { StaffListComponent } from './staff/staff-list/staff-list.component';
@@ -15,8 +15,6 @@ import { AwardsLogComponent } from './awards/awards-log/awards-log.component';
 
 @NgModule({
   declarations: [DashboardComponent, StaffFormComponent, StaffListComponent, ManualFormComponent, ManualListComponent, ClaimableFormComponent, ClaimableListComponent, ClaimableDetailComponent, ManualDetailComponent, AwardsLogComponent],
-  imports: [
-    CommonModule
-  ]
+  imports: [AdminRoutingModule]
 })
 export class AdminModule { }
