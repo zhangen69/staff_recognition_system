@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { NewsfeedFormComponent } from './newsfeed/newsfeed-form/newsfeed-form.component';
 import { NewsfeedListComponent } from './newsfeed/newsfeed-list/newsfeed-list.component';
@@ -17,6 +18,6 @@ import { StaffRoutingModule } from './staff.routing.module';
 
 @NgModule({
   declarations: [NewsfeedFormComponent, NewsfeedListComponent, NewsfeedDetailComponent, NewsfeedDashboardComponent, NewsfeedGameComponent, ProfileDashboardComponent, ProfileBadgesComponent, ProfileRewardsComponent, ProfileTeamsComponent, ProfileSentComponent, ProfileReceivedComponent, ProfileAchievementsComponent],
-  imports: [StaffRoutingModule]
+  imports: [StaffRoutingModule, CommonModule]
 })
 export class StaffModule { }

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'projects/ng-app/src/environments/environment';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'profile',

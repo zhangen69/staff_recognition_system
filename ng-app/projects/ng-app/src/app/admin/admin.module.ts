@@ -1,3 +1,4 @@
+import { AwardsDashboardComponent } from './awards/awards-dashboard/awards-dashboard.component';
 import { AdminRoutingModule } from './admin.routing.module';
 import { NgModule } from '@angular/core';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -10,11 +11,12 @@ import { ClaimableListComponent } from './awards/claimable-list/claimable-list.c
 import { ClaimableDetailComponent } from './awards/claimable-detail/claimable-detail.component';
 import { ManualDetailComponent } from './awards/manual-detail/manual-detail.component';
 import { AwardsLogComponent } from './awards/awards-log/awards-log.component';
+import { CommonModule } from '@angular/common';
 
 
 
 @NgModule({
-  declarations: [DashboardComponent, StaffFormComponent, StaffListComponent, ManualFormComponent, ManualListComponent, ClaimableFormComponent, ClaimableListComponent, ClaimableDetailComponent, ManualDetailComponent, AwardsLogComponent],
-  imports: [AdminRoutingModule]
+  declarations: [DashboardComponent, StaffFormComponent, StaffListComponent, ManualFormComponent, ManualListComponent, ClaimableFormComponent, ClaimableListComponent, ClaimableDetailComponent, ManualDetailComponent, AwardsLogComponent, AwardsDashboardComponent],
+  imports: [AdminRoutingModule, CommonModule]
 })
 export class AdminModule { }
