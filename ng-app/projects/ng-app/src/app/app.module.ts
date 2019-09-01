@@ -3,6 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StorageModule } from '@ngx-pwa/local-storage';
+
+import { SharedModule } from './shared/shared.module';
+import { AdminModule } from './admin/admin.module';
+import { StaffModule } from './staff/staff.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +15,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    StorageModule.forRoot({ IDBNoWrap: true }),
+    SharedModule,
+    AdminModule,
+    StaffModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
