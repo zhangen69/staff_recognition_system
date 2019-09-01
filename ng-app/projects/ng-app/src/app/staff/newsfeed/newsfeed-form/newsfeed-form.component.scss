@@ -1,0 +1,29 @@
+button {
+    background-color:#4fbb4f;
+    color: #fff;
+}
+
+mat-card-title {
+    button {
+        border-radius: 10px;
+
+        .hashtag-btn mat-icon {
+            vertical-align: sub;
+            font-weight: bold;
+        }
+    }
+
+    button:nth-child(n+2) {
+        margin-left: 10px;
+    }
+}
+
+mat-card-actions {
+    width: 100%;
+    display: flex;
+
+    .action-group {
+        margin-left: auto;
+        display: inline-block;
+    }
+}

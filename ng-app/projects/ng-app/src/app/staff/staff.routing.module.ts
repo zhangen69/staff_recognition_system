@@ -50,7 +50,8 @@ const routes: Routes = [
                 component: ProfileRewardsComponent,
             },
         ]
-    }
+    },
+    { path: '', redirectTo: '/newsfeed', pathMatch: 'full' },
 ];
 
 @NgModule({

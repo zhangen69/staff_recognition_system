@@ -13,11 +13,14 @@ import { ProfileSentComponent } from './profile/profile-sent/profile-sent.compon
 import { ProfileReceivedComponent } from './profile/profile-received/profile-received.component';
 import { ProfileAchievementsComponent } from './profile/profile-achievements/profile-achievements.component';
 import { StaffRoutingModule } from './staff.routing.module';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
 @NgModule({
   declarations: [NewsfeedFormComponent, NewsfeedListComponent, NewsfeedDetailComponent, NewsfeedDashboardComponent, NewsfeedGameComponent, ProfileDashboardComponent, ProfileBadgesComponent, ProfileRewardsComponent, ProfileTeamsComponent, ProfileSentComponent, ProfileReceivedComponent, ProfileAchievementsComponent],
-  imports: [StaffRoutingModule, CommonModule]
+  imports: [StaffRoutingModule, CommonModule, MatCardModule, MatIconModule, MatButtonModule]
 })
 export class StaffModule { }
