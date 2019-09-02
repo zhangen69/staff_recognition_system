@@ -9,10 +9,12 @@ import { StorageModule } from '@ngx-pwa/local-storage';
 import { SharedModule } from './shared/shared.module';
 import { AdminModule } from './admin/admin.module';
 import { StaffModule } from './staff/staff.module';
+import { MaterialModule } from './material.module';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,6 +24,11 @@ import { StaffModule } from './staff/staff.module';
     SharedModule,
     AdminModule,
     StaffModule,
+    MaterialModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

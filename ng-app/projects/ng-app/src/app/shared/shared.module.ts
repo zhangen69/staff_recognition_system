@@ -15,6 +15,7 @@ import { DialogFormComponent } from './templates/dialog-form/dialog-form.compone
 import { PageLoaderComponent } from './templates/page-loader/page-loader.component';
 import { PageNotFoundComponent } from './templates/page-not-found/page-not-found.component';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { CommonModule } from '@angular/common';
     MatProgressSpinnerModule,
     RouterModule,
     CommonModule,
+    HttpClientModule,
   ]
 })
 export class SharedModule { }

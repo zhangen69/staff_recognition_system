@@ -54,10 +54,10 @@ $ng-app-theme: mat-light-theme($ng-app-primary, $ng-app-accent, $ng-app-warn);
 // that you are using.
 @include angular-material-theme($ng-app-theme);
 
-/* You can add global styles to this file, and also import other style files */
+// reset css
+@import '~normalize.css';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
