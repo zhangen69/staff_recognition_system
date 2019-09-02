@@ -16,7 +16,7 @@ import { PageLoaderComponent } from './templates/page-loader/page-loader.compone
 import { PageNotFoundComponent } from './templates/page-not-found/page-not-found.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -40,6 +40,7 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule,
     CommonModule,
     HttpClientModule,
+    FlexLayoutModule,
   ]
 })
 export class SharedModule { }

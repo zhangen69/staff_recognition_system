@@ -12,11 +12,11 @@ import { ClaimableDetailComponent } from './awards/claimable-detail/claimable-de
 import { ManualDetailComponent } from './awards/manual-detail/manual-detail.component';
 import { AwardsLogComponent } from './awards/awards-log/awards-log.component';
 import { CommonModule } from '@angular/common';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
   declarations: [DashboardComponent, StaffFormComponent, StaffListComponent, ManualFormComponent, ManualListComponent, ClaimableFormComponent, ClaimableListComponent, ClaimableDetailComponent, ManualDetailComponent, AwardsLogComponent, AwardsDashboardComponent],
-  imports: [AdminRoutingModule, CommonModule]
+  imports: [AdminRoutingModule, CommonModule, FlexLayoutModule]
 })
 export class AdminModule { }

@@ -1,7 +1,7 @@
 import { AppRoutingModule } from './app.routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StorageModule } from '@ngx-pwa/local-storage';
@@ -29,6 +29,7 @@ import { ToastrModule } from 'ngx-toastr';
       timeOut: 3000,
       positionClass: 'toast-bottom-right',
     }),
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

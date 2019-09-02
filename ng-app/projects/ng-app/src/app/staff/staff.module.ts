@@ -14,11 +14,11 @@ import { ProfileReceivedComponent } from './profile/profile-received/profile-rec
 import { ProfileAchievementsComponent } from './profile/profile-achievements/profile-achievements.component';
 import { StaffRoutingModule } from './staff.routing.module';
 import { MaterialModule } from '../material.module';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
   declarations: [NewsfeedFormComponent, NewsfeedListComponent, NewsfeedDetailComponent, NewsfeedDashboardComponent, NewsfeedGameComponent, ProfileDashboardComponent, ProfileBadgesComponent, ProfileRewardsComponent, ProfileTeamsComponent, ProfileSentComponent, ProfileReceivedComponent, ProfileAchievementsComponent],
-  imports: [StaffRoutingModule, CommonModule, MaterialModule]
+  imports: [StaffRoutingModule, CommonModule, MaterialModule, FlexLayoutModule]
 })
 export class StaffModule { }
