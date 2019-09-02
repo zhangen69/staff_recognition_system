@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-newsfeed-detail',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./newsfeed-detail.component.scss']
 })
 export class NewsfeedDetailComponent implements OnInit {
+  @Input()
+  data: any;
 
   constructor() { }
 
