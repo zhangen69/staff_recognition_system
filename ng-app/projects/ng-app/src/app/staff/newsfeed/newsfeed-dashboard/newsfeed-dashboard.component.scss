@@ -1,0 +1,21 @@
+.newsfeed {
+    display: flex;
+    height: 100%;
+
+    > * {
+        display: flex;
+        flex-direction: column;
+        padding: 5px 10px;
+        height: calc(100% - 20px);
+    }
+
+    .main-content {
+        border: 1px solid #f00;
+        width: calc(100% - 300px);
+    }
+
+    .sidebar {
+        border: 1px solid #ff0;
+        width: 300px;
+    }
+}
