@@ -8,4 +8,4 @@ const schema = new mongoose.Schema({
 
 schema.add(auditable);
 
-export default mongoose.model('User', schema);
+export default mongoose.model('Role', schema);
