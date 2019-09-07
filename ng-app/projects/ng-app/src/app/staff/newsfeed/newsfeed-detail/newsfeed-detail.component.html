@@ -10,30 +10,46 @@
       <span matBadge="+5" matBadgeOverlap="true"></span>
       <span matBadge="H" matBadgeOverlap="true"></span>
     </div>
+    <div class="more-info">
+      <span class="duration">2 min ago</span>
+      <button mat-icon-button>
+        <mat-icon>more_horiz</mat-icon>
+      </button>
+    </div>
     <p>good, thanks for helping!</p>
     <div class="hashtag-group">
       <span class="hashtag-link">#teamwork</span>
       <span class="hashtag-link">#problemsolver</span>
     </div>
+    <div class="info-group">
+      <span class="info-likes">
+        <mat-icon class="icon-sm">thumb_up</mat-icon>
+        <span class="info">10</span>
+      </span>
+      <span class="info-comments" (click)="showCommentsToggle()">
+        <mat-icon class="icon-sm">add_comment</mat-icon>
+        <span class="info">10</span>
+      </span>
+    </div>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (click)="commentToggle()">
+    <button mat-raised-button (click)="addCommentToggle()">
       <mat-icon>add_comment</mat-icon> Comment
     </button>
     <button mat-raised-button color="primary">
       <mat-icon>thumb_up</mat-icon> React
     </button>
   </mat-card-actions>
-  <mat-card-footer>
-    <ng-container>
-      <p>Comment1</p>
-      <p>Comment2</p>
-      <p>Comment3</p>
-      <p>Comment4</p>
-      <p>Comment5</p>
+  <mat-card-footer *ngIf="showComments || showCommentInput">
+    <ng-container *ngIf="showComments">
+      <p><span matBadge="P1" matBadgeOverlap="true"></span>Person1: Comment1</p>
+      <p><span matBadge="P2" matBadgeOverlap="true"></span>Person2: Comment2</p>
+      <p><span matBadge="P3" matBadgeOverlap="true"></span>Person3: Comment3</p>
+      <p><span matBadge="P4" matBadgeOverlap="true"></span>Person4: Comment4</p>
+      <p><span matBadge="P5" matBadgeOverlap="true"></span>Person5: Comment5</p>
     </ng-container>
 
-    <mat-form-field *ngIf="showComment">
+    <mat-form-field *ngIf="showCommentInput" floatLabel="always">
       <textarea matInput type="text" placeholder="Add a comment"></textarea>
     </mat-form-field>
   </mat-card-footer>

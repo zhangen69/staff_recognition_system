@@ -8,15 +8,20 @@ import { Component, OnInit, Input } from '@angular/core';
 export class NewsfeedDetailComponent implements OnInit {
   @Input()
   data: any;
-  showComment = false;
+  showComments = false;
+  showCommentInput = false;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  commentToggle(isShow) {
-    this.showComment = isShow || !this.showComment;
+  showCommentsToggle(isShow) {
+    this.showComments = isShow || !this.showComments;
+  }
+
+  addCommentToggle(isShow) {
+    this.showCommentInput = isShow || !this.showCommentInput;
   }
 
 }

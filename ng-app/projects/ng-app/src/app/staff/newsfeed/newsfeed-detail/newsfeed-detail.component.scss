@@ -1,56 +1,120 @@
+$border-color: #ddd;
+
 mat-card {
     margin: 10px 0;
+    padding-bottom: 0;
 
-    .profile-link {
-        font-size: 1.5rem;
-        text-decoration: none;
-        color: #385898;
-        font-weight: 600;   
-    }
+    mat-card-content {
+        margin-bottom: 5px;
+        
+        .profile-link {
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: #385898;
+            font-weight: 600;   
+        }
 
-    .profile-link:hover {
-        text-decoration: underline;
-    }
+        .profile-link:hover {
+            text-decoration: underline;
+        }
 
-    .badge-group {
-        height: 50px;
-        border-bottom: 1px solid #eee;
+        .badge-group {
+            height: 50px;
+            border-bottom: 1px solid $border-color;
 
-        .mat-badge {
+            .mat-badge {
+                margin-top: 10px;
+                margin-right: 30px;
+        
+                .mat-badge-content {
+                    top: 10px;
+                    right: -25px;
+                    font-size: 1em;
+                    height: 25px;
+                    width: 25px;
+                    line-height: 25px;            
+                }
+            }
+        }
+
+        .hashtag-group {
+            .hashtag-link {
+                color: #385898;
+                font-weight: 500;
+                margin-right: 10px;
+            }
+
+            .hashtag-link:hover {
+                cursor: pointer;
+            }
+        }
+
+        .info-group {
             margin-top: 10px;
-            margin-right: 30px;
-    
-            .mat-badge-content {
-                top: 10px;
-                right: -25px;
-                font-size: 1em;
-                height: 25px;
-                width: 25px;
-                line-height: 25px;            
+            padding-bottom: 10px;
+            border-bottom: 1px solid $border-color;
+
+            [class^="info-"] {
+                margin-right: 10px;
+                user-select: none;
+            }
+
+            .info-comments {
+                cursor: pointer;
+            }
+
+            .info-comments:hover .info {
+                text-decoration: underline;
+            }
+        }
+
+        .more-info {            
+            margin-top: 5px;
+            margin-right: 5px;
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            .duration {
+                font-size: 12px;
             }
         }
     }
 
-    .hashtag-group {
-        .hashtag-link {
-            color: #385898;
-            font-weight: 500;
-            margin-right: 10px;
-        }
-
-        .hashtag-link:hover {
-            cursor: pointer;
-        }
+    .mat-card-actions {
+        margin-bottom: 5px;
+        padding-bottom: 10px;
     }
 
     mat-card-footer {
-        padding: 0 10px;
+        padding: 10px 16px;
         max-width: 100%;
+        background-color: #f5f5f5;
+
+        p {
+            padding-left: 1rem;
+
+            .mat-badge-content {
+                top: -3px;
+                left: -25px;
+            }
+        }
         
+        p:last-of-type {
+            border-bottom: 1px solid $border-color;
+        }
+
         mat-form-field {
             width: 100%;
-            border-top: 1px solid #eee;
+            margin-bottom: -1.25em;
         }
     }
-    
+}
+
+.mat-icon.icon-sm {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    vertical-align: middle;
 }
