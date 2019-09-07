@@ -24,11 +24,6 @@ import { ToastrModule } from 'ngx-toastr';
     SharedModule,
     AdminModule,
     StaffModule,
-    MaterialModule,
-    ToastrModule.forRoot({
-      timeOut: 3000,
-      positionClass: 'toast-bottom-right',
-    }),
     FlexLayoutModule,
   ],
   providers: [],

@@ -19,6 +19,8 @@ import { StandardFormFieldComponent } from './standard/standard-form-field/stand
 import { StandardFilterComponent } from './standard/standard-filter/standard-filter.component';
 import { TitleDisplayPipe } from './pipes/title-display.pipe';
 import { FileUploadModule } from 'ng2-file-upload';
+import { ToastrModule } from 'ngx-toastr';
+import { UserChangePasswordComponent } from './auth/change-password/user-change-password.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { FileUploadModule } from 'ng2-file-upload';
     ProfileComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
+    UserChangePasswordComponent,
     ConfirmationDialogComponent,
     DialogFormComponent,
     PageLoaderComponent,
@@ -44,17 +47,23 @@ import { FileUploadModule } from 'ng2-file-upload';
     HttpClientModule,
     FlexLayoutModule,
     FileUploadModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+    }),
   ],
   providers: [
     DatePipe,
     CurrencyPipe,
     TitleDisplayPipe,
   ],
+  entryComponents: [ConfirmationDialogComponent, DialogFormComponent],
   exports: [
     LoginComponent,
     ProfileComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
+    UserChangePasswordComponent,
     ConfirmationDialogComponent,
     DialogFormComponent,
     PageLoaderComponent,
@@ -63,6 +72,15 @@ import { FileUploadModule } from 'ng2-file-upload';
     StandardFormComponent,
     StandardFormFieldComponent,
     StandardFilterComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    RouterModule,
+    CommonModule,
+    HttpClientModule,
+    FlexLayoutModule,
+    FileUploadModule,
+    ToastrModule,
   ]
 })
 export class SharedModule { }
