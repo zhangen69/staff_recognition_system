@@ -1,9 +1,9 @@
-import { Router } from 'express';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../../environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'profile',
@@ -19,11 +19,16 @@ export class ProfileComponent implements OnInit {
     email: ['', Validators.required],
     phoneNumber: ['', Validators.required],
     avatarImageUrl: [''],
-    signatureImageUrl: [''],
+    signatureImageUrl: ['']
   });
   imagesPreview: any = {};
 
-  constructor(private formBuilder: FormBuilder, private toastr: ToastrService, private http: HttpClient, private router: Router) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService,
+    private http: HttpClient,
+    private router: Router
+  ) {
     this.apiUrl = `${environment.apiUrl}/service/user`;
   }
 
@@ -37,7 +42,6 @@ export class ProfileComponent implements OnInit {
     const file = (event.target as HTMLInputElement).files[0];
 
     if (file.type.indexOf('image/') > -1) {
-
       this.formData.patchValue({ avatarImage: file });
       this.formData.get('avatarImage').updateValueAndValidity();
 
@@ -47,15 +51,18 @@ export class ProfileComponent implements OnInit {
       };
       reader.readAsDataURL(file);
     } else {
-      this.toastr.error('Invalid MIME type, please select JPEG or PNG type image.');
+      this.toastr.error(
+        'Invalid MIME type, please select JPEG or PNG type image.'
+      );
     }
   }
 
   onSubmit(formData) {
-    this.http.put(this.apiUrl + '/updateProfile', formData).subscribe((res: any) => {
-      this.toastr.success(res.message);
-      this.router.navigate(['/']);
-    });
+    this.http
+      .put(this.apiUrl + '/updateProfile', formData)
+      .subscribe((res: any) => {
+        this.toastr.success(res.message);
+        this.router.navigate(['/']);
+      });
   }
-
 }

@@ -21,6 +21,10 @@ import { TitleDisplayPipe } from './pipes/title-display.pipe';
 import { FileUploadModule } from 'ng2-file-upload';
 import { ToastrModule } from 'ngx-toastr';
 import { UserChangePasswordComponent } from './auth/change-password/user-change-password.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FilterOptionsPipe } from './standard/filter-options.pipe';
+import { GetTotalPipe } from './pipes/get-total.pipe';
 
 @NgModule({
   declarations: [
@@ -37,8 +41,13 @@ import { UserChangePasswordComponent } from './auth/change-password/user-change-
     StandardFormComponent,
     StandardFormFieldComponent,
     StandardFilterComponent,
+    FilterOptionsPipe,
+    TitleDisplayPipe,
+    GetTotalPipe,
   ],
   imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
@@ -81,6 +90,9 @@ import { UserChangePasswordComponent } from './auth/change-password/user-change-
     FlexLayoutModule,
     FileUploadModule,
     ToastrModule,
-  ]
+    FilterOptionsPipe,
+    TitleDisplayPipe,
+    GetTotalPipe,
+  ],
 })
 export class SharedModule { }

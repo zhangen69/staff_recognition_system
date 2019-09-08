@@ -6,11 +6,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StorageModule } from '@ngx-pwa/local-storage';
 
-import { SharedModule } from './shared/shared.module';
 import { AdminModule } from './admin/admin.module';
 import { StaffModule } from './staff/staff.module';
-import { MaterialModule } from './material.module';
-import { ToastrModule } from 'ngx-toastr';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,9 +19,9 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     StorageModule.forRoot({ IDBNoWrap: true }),
     AppRoutingModule,
-    SharedModule,
     AdminModule,
     StaffModule,
+    SharedModule,
     FlexLayoutModule,
   ],
   providers: [],
