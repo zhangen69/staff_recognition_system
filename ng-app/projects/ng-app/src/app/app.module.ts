@@ -9,22 +9,23 @@ import { StorageModule } from '@ngx-pwa/local-storage';
 import { AdminModule } from './admin/admin.module';
 import { StaffModule } from './staff/staff.module';
 import { SharedModule } from './shared/shared.module';
+import { MaterialModule } from './material.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     StorageModule.forRoot({ IDBNoWrap: true }),
     AppRoutingModule,
     AdminModule,
     StaffModule,
-    SharedModule,
-    FlexLayoutModule,
+    MaterialModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

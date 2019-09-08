@@ -31,7 +31,7 @@ export class GetTotalPipe implements PipeTransform {
 
                     return { price, qty };
                 }),
-                reduce((acc, val) => acc + val.price * val.qty, 0)
+                reduce((acc, val: any) => acc + val.price * val.qty, 0)
             )
             .subscribe(val => {
                 total = val;

@@ -43,29 +43,25 @@ import { GetTotalPipe } from './pipes/get-total.pipe';
     StandardFilterComponent,
     FilterOptionsPipe,
     TitleDisplayPipe,
-    GetTotalPipe,
+    GetTotalPipe
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
+    // BrowserModule,
+    // BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
     RouterModule,
     CommonModule,
-    HttpClientModule,
+    // HttpClientModule,
     FlexLayoutModule,
     FileUploadModule,
     ToastrModule.forRoot({
       timeOut: 3000,
-      positionClass: 'toast-bottom-right',
-    }),
+      positionClass: 'toast-bottom-right'
+    })
   ],
-  providers: [
-    DatePipe,
-    CurrencyPipe,
-    TitleDisplayPipe,
-  ],
+  providers: [DatePipe, CurrencyPipe, TitleDisplayPipe],
   entryComponents: [ConfirmationDialogComponent, DialogFormComponent],
   exports: [
     LoginComponent,
@@ -92,7 +88,7 @@ import { GetTotalPipe } from './pipes/get-total.pipe';
     ToastrModule,
     FilterOptionsPipe,
     TitleDisplayPipe,
-    GetTotalPipe,
-  ],
+    GetTotalPipe
+  ]
 })
-export class SharedModule { }
+export class SharedModule {}

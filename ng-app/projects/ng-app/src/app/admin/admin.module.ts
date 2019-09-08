@@ -15,9 +15,20 @@ import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from '../shared/shared.module';
 
-
 @NgModule({
-  declarations: [DashboardComponent, StaffFormComponent, StaffListComponent, ManualFormComponent, ManualListComponent, ClaimableFormComponent, ClaimableListComponent, ClaimableDetailComponent, ManualDetailComponent, AwardsLogComponent, AwardsDashboardComponent],
-  imports: [AdminRoutingModule, CommonModule, FlexLayoutModule, SharedModule]
+  declarations: [
+    DashboardComponent,
+    StaffFormComponent,
+    StaffListComponent,
+    ManualFormComponent,
+    ManualListComponent,
+    ClaimableFormComponent,
+    ClaimableListComponent,
+    ClaimableDetailComponent,
+    ManualDetailComponent,
+    AwardsLogComponent,
+    AwardsDashboardComponent
+  ],
+  imports: [AdminRoutingModule, FlexLayoutModule, SharedModule]
 })
-export class AdminModule { }
+export class AdminModule {}

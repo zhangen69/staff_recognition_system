@@ -10,67 +10,87 @@ import { AwardsDashboardComponent } from './awards/awards-dashboard/awards-dashb
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from '../shared/templates/page-not-found/page-not-found.component';
+import { StaffListComponent } from './staff/staff-list/staff-list.component';
+import { StaffFormComponent } from './staff/staff-form/staff-form.component';
 
 const routes: Routes = [
   {
     path: 'awards',
-    component: AwardsDashboardComponent,
     children: [
       {
+        path: '',
+        component: AwardsDashboardComponent
+      },
+      {
         path: 'log',
-        component: AwardsLogComponent,
+        component: AwardsLogComponent
       },
       {
         path: 'claimable',
-        component: ClaimableListComponent,
         children: [
           {
             path: 'new',
-            component: ClaimableFormComponent,
+            component: ClaimableFormComponent
           },
           {
             path: 'edit/:id',
-            component: ClaimableFormComponent,
+            component: ClaimableFormComponent
           },
           {
             path: 'detail/:id',
-            component: ClaimableDetailComponent,
+            component: ClaimableDetailComponent
           },
           {
-            path: 'list',
-            component: ClaimableListComponent,
-          },
-        ],
+            path: '',
+            component: ClaimableListComponent
+          }
+        ]
       },
       {
         path: 'manual',
-        component: ManualListComponent,
         children: [
           {
             path: 'new',
-            component: ManualFormComponent,
+            component: ManualFormComponent
           },
           {
             path: 'edit/:id',
-            component: ManualFormComponent,
+            component: ManualFormComponent
           },
           {
             path: 'detail/:id',
-            component: ManualDetailComponent,
+            component: ManualDetailComponent
           },
           {
-            path: 'list',
-            component: ManualListComponent,
-          },
+            path: '',
+            component: ManualListComponent
+          }
         ]
-      },
-    ],
+      }
+    ]
   },
   {
     path: 'dashboard',
-    component: DashboardComponent,
+    component: DashboardComponent
   },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  {
+    path: 'staff',
+    children: [
+      {
+        path: '',
+        component: StaffListComponent,
+      },
+      {
+        path: 'new',
+        component: StaffFormComponent
+      },
+      {
+        path: 'edit/:id',
+        component: StaffFormComponent
+      }
+    ]
+  },
+  { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -78,4 +98,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}
