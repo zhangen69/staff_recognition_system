@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "tsc",
-    "serve": "ts-node-dev --respawn --transpileOnly ./src/app.ts && npm run serve --prefix ../vue-app",
-    "dev": "concurrently --kill-others \"npm run serve\" \"npm run serve --prefix ../vue-app\"",
+    "serve": "ts-node-dev --respawn --transpileOnly ./src/app.ts && ng serve --prefix ../ng-app",
+    "dev": "concurrently --kill-others \"npm run serve\" \"ng serve --prefix ../ng-app\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jacob Tan",
@@ -37,6 +37,7 @@
     "multer": "^1.4.1",
     "multer-storage-cloudinary": "^2.2.1",
     "promise": "^8.0.3",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "ws": "^7.1.2"
   }
 }

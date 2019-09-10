@@ -12,6 +12,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from '../shared/templates/page-not-found/page-not-found.component';
 import { StaffListComponent } from './staff/staff-list/staff-list.component';
 import { StaffFormComponent } from './staff/staff-form/staff-form.component';
+import { LoginComponent } from '../shared/auth/login/login.component';
+import { ForgotPasswordComponent } from '../shared/auth/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from '../shared/auth/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -90,6 +93,11 @@ const routes: Routes = [
       }
     ]
   },
+  { path: 'auth', children: [
+    { path: 'login', component: LoginComponent },
+    { path: 'forgotPassword', component: ForgotPasswordComponent },
+    { path: 'resetPassword/:token', component: ResetPasswordComponent },
+  ]},
   { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
