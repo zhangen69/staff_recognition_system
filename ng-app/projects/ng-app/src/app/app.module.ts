@@ -10,7 +10,8 @@ import { AdminModule } from './admin/admin.module';
 import { StaffModule } from './staff/staff.module';
 import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './material.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './shared/auth/auth.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +26,9 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

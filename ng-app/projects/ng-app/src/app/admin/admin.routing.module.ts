@@ -15,6 +15,7 @@ import { StaffFormComponent } from './staff/staff-form/staff-form.component';
 import { LoginComponent } from '../shared/auth/login/login.component';
 import { ForgotPasswordComponent } from '../shared/auth/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from '../shared/auth/reset-password/reset-password.component';
+import { AuthGuard } from '../shared/auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -78,6 +79,7 @@ const routes: Routes = [
   },
   {
     path: 'staff',
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -104,6 +106,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AdminRoutingModule {}

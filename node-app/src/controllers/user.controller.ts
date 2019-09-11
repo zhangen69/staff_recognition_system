@@ -57,7 +57,7 @@ class Controller {
             status: 200,
             message: `logged in!`,
             token: jwt.sign({ username: user.username, _id: user._id }, 'secret this should be longer', { expiresIn: '1d' }),
-            expiresIn: 60 * 60 * 24,
+            expiresIn: 60 * 60 * 24 * 1000,
         };
 
         if (user.accessFailedCount > 0) {
@@ -128,6 +128,9 @@ class Controller {
         }
         const count = await this.estimatedDocumentCount(conditions);
         const users = await this.findUsers(conditions, options);
+        
+        console.log(users);
+    
         return {
             status: 200,
             data: mapColletionToUserDTO(users),

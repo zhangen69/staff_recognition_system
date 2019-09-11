@@ -11,7 +11,7 @@ import { DialogFormComponent } from './templates/dialog-form/dialog-form.compone
 import { PageLoaderComponent } from './templates/page-loader/page-loader.component';
 import { PageNotFoundComponent } from './templates/page-not-found/page-not-found.component';
 import { CommonModule, DatePipe, CurrencyPipe } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { StandardListComponent } from './standard/standard-list/standard-list.component';
 import { StandardFormComponent } from './standard/standard-form/standard-form.component';
@@ -25,6 +25,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterOptionsPipe } from './standard/filter-options.pipe';
 import { GetTotalPipe } from './pipes/get-total.pipe';
+import { AuthInterceptor } from './auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,12 @@ import { GetTotalPipe } from './pipes/get-total.pipe';
       positionClass: 'toast-bottom-right'
     })
   ],
-  providers: [DatePipe, CurrencyPipe, TitleDisplayPipe],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    DatePipe,
+    CurrencyPipe,
+    TitleDisplayPipe
+  ],
   entryComponents: [ConfirmationDialogComponent, DialogFormComponent],
   exports: [
     LoginComponent,

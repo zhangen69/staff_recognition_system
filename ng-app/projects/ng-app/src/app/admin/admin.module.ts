@@ -14,6 +14,8 @@ import { AwardsLogComponent } from './awards/awards-log/awards-log.component';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from '../shared/shared.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from '../shared/auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,9 @@ import { SharedModule } from '../shared/shared.module';
     AwardsLogComponent,
     AwardsDashboardComponent
   ],
-  imports: [AdminRoutingModule, FlexLayoutModule, SharedModule]
+  imports: [AdminRoutingModule, FlexLayoutModule, SharedModule],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ]
 })
 export class AdminModule {}
