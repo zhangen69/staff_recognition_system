@@ -6,11 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./staff-list.component.scss']
 })
 export class StaffListComponent implements OnInit {
+  showDefaultBtn = false;
   columns = [
-    { name: 'name', displayName: 'Name', format: 'link', link: '/staff/view' },
+    { name: 'displayName', format: 'link', link: '/staff/view' },
+    { name: 'email' },
+    { name: 'phoneNumber' },
   ];
   filterList = [];
-  actions = [];
+  actions = [
+    { name: 'New Staff', format: 'link', link: '/admin/staff/new', default: true },
+  ];
 
   constructor() { }
 

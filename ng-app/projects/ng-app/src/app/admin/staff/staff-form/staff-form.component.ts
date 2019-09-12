@@ -10,6 +10,9 @@ export class StaffFormComponent implements OnInit {
   fields = [
     { name: 'username', type: 'string', required: true },
     { name: 'password', type: 'password', required: true },
+    { name: 'displayName', type: 'string', required: true },
+    { name: 'email', type: 'string', required: true },
+    { name: 'phoneNumber', type: 'string', required: true },
   ];
 
   constructor() {}

@@ -17,6 +17,7 @@ import { ToastrService } from 'ngx-toastr';
     styleUrls: ['./standard-list.component.css']
 })
 export class StandardListComponent implements OnInit, AfterViewInit {
+    @Input() showDefaultBtn = true;
     @Input() columns: any[];
     @Input() filterList: any[];
     @Input() domainName: string;
@@ -182,6 +183,10 @@ export class StandardListComponent implements OnInit, AfterViewInit {
     }
 
     showAction(action) {
+        if (action.default) {
+            return true;
+        }
+
         if (this.selectedItems.length === 0) {
             return false;
         }
