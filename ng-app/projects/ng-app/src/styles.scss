@@ -117,10 +117,6 @@ table {
     }
 }
 
-// .action-group > .mat-raised-button {
-//     margin: 0 5px;
-// }
-
 .standard-filter {
     margin: 10px;
 
@@ -128,10 +124,6 @@ table {
         padding: 0 5px;
     }
 }
-
-// .standard-filter .mat-form-field {
-//     padding: 0 5px;
-// }
 
 .standard-table.mat-table {
     .mat-column-audit-updatedDate {
@@ -151,23 +143,6 @@ table {
         vertical-align: middle !important;
     }
 }
-
-// .standard-table.mat-table .mat-column-audit-updatedDate {
-//     width: 150px;
-// }
-
-// .standard-table.mat-table .mat-column-action {
-//     width: 250px;
-// }
-
-// .standard-table.mat-table .mat-column-action button {
-//     padding: 0 8px;
-//     margin: 0 5px;
-// }
-
-// .standard-table.mat-table .mat-column-action button .mat-icon {
-//     vertical-align: middle !important;
-// }
 
 .standard-table {
     th.mat-sort-header-sorted {
@@ -205,40 +180,6 @@ table {
     }
 }
 
-// .standard-table th.mat-sort-header-sorted {
-//     color: black;
-// }
-
-// .standard-table .number-form-fields {
-//     display: inline-block;
-// }
-
-// .standard-table .mat-paginator {
-//     margin-top: 1rem;
-// }
-
-// .standard-table .mat-column-select {
-//     width: 50px;
-// }
-
-// .standard-table .mat-column-audit-updatedDate {
-//     width: 150px;
-// }
-
-// .standard-table .mat-column-action {
-//     width: 200px;
-//     text-align: center;
-// }
-
-// .standard-table .mat-column-action button {
-//     padding: 0 8px;
-//     margin: 0 5px;
-// }
-
-// .standard-table a:hover {
-//     cursor: pointer;
-// }
-
 .image-wrapper {
     .input-file {
         visibility: hidden;
@@ -257,23 +198,6 @@ table {
         }
     }
 }
-
-// .image-wrapper .input-file {
-//     visibility: hidden;
-// }
-
-// .image-wrapper .image-picker {
-//     margin: 1rem 0;
-// }
-
-// .image-wrapper .image-preview {
-//     height: 5rem;
-//     margin: 1rem 0;
-// }
-
-// .image-wrapper .image-preview img {
-//     height: 100%;
-// }
 
 .view-page {
     .mat-expansion-panel {
@@ -297,25 +221,4 @@ table {
         font-weight: normal;
     }
 }
-
-// .view-page .mat-expansion-panel {
-//     margin-bottom: 10px;
-// }
-
-// .view-page .bg-primary,
-// .view-page .bg-primary.mat-expanded:hover,
-// .view-page .bg-primary.mat-expanded:focus,
-// .view-page .mat-expansion-panel:not(.mat-expanded) .bg-primary,
-// .view-page .mat-expansion-panel:not(.mat-expanded) .bg-primary:hover {
-//     background-color: #007bff;
-// }
-
-// .view-page .bg-primary .mat-expansion-panel-header-title,
-// .view-page .bg-primary .mat-expansion-indicator:after {
-//     color: #fff;
-// }
-
-// .view-page .view-field span {
-//     font-weight: normal;
-// }
 
