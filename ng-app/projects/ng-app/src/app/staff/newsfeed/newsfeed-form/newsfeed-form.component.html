@@ -47,9 +47,10 @@
 <ng-template #tag_person_dialog>
     <h2 matDialogTitle>Such dialog very wow!</h2>
     <mat-dialog-content>
-        <mat-form-field>
+        <!-- <mat-form-field>
             <input matInput type="text" [(ngModel)]="formData.receiver" placeholder="Select a staff...">
-        </mat-form-field>
+        </mat-form-field> -->
+        <app-standard-form-field form="form" [field]="{ type: 'ref', name: 'receiver', ref: 'user', displayName: 'Receiver', refName: 'displayName' }" [(formData)]="formData"></app-standard-form-field>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
         <button mat-button matDialogClose color="primary">Shutdown dialog</button>

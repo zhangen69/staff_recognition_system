@@ -16,10 +16,11 @@ import { StaffRoutingModule } from './staff.routing.module';
 import { MaterialModule } from '../material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   declarations: [NewsfeedFormComponent, NewsfeedListComponent, NewsfeedDetailComponent, NewsfeedDashboardComponent, NewsfeedGameComponent, ProfileDashboardComponent, ProfileBadgesComponent, ProfileRewardsComponent, ProfileTeamsComponent, ProfileSentComponent, ProfileReceivedComponent, ProfileAchievementsComponent],
-  imports: [FormsModule, StaffRoutingModule, CommonModule, MaterialModule, FlexLayoutModule]
+  imports: [FormsModule, StaffRoutingModule, CommonModule,  FlexLayoutModule, SharedModule]
 })
 export class StaffModule { }
