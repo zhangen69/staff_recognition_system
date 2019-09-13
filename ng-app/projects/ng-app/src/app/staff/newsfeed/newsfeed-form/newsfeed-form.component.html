@@ -36,11 +36,12 @@
     <h2 matDialogTitle>Such dialog very wow!</h2>
     <mat-dialog-content>
         <mat-form-field>
-            <input matInput type="number" [(ngModel)]="formData.bonus" placeholder="Enter bonus amount...">
+            <input matInput type="number" [(ngModel)]="dialogForm.bonus" placeholder="Enter bonus amount...">
         </mat-form-field>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-        <button mat-button matDialogClose color="primary">Shutdown dialog</button>
+        <button mat-button color="primary" (click)="closeDialog('bonus')">OK</button>
+        <button mat-button color="primary" (click)="cancelDialog('bonus')">Cancel</button>
     </mat-dialog-actions>
 </ng-template>
 
@@ -50,10 +51,13 @@
         <!-- <mat-form-field>
             <input matInput type="text" [(ngModel)]="formData.receiver" placeholder="Select a staff...">
         </mat-form-field> -->
-        <app-standard-form-field form="form" [field]="{ type: 'ref', name: 'receiver', ref: 'user', displayName: 'Receiver', refName: 'displayName' }" [(formData)]="formData"></app-standard-form-field>
+        <app-standard-form-field form="form"
+            [field]="{ type: 'ref', name: 'receiver', ref: 'user', displayName: 'Receiver', refName: 'displayName' }"
+            [(formData)]="dialogForm"></app-standard-form-field>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-        <button mat-button matDialogClose color="primary">Shutdown dialog</button>
+        <button mat-button color="primary" (click)="closeDialog('receiver')">OK</button>
+        <button mat-button color="primary" (click)="cancelDialog('receiver')">Cancel</button>
     </mat-dialog-actions>
 </ng-template>
 
@@ -63,7 +67,7 @@
         <mat-form-field>
             <!-- <input matInput type="text" [(ngModel)]="formData.hashtag" placeholder="Select a hashtag..."> -->
             <mat-label>Hashtag</mat-label>
-            <mat-select [(ngModel)]="formData.hashtag">
+            <mat-select [(ngModel)]="dialogForm.hashtag">
                 <mat-option value="collaborator">Collaborator</mat-option>
                 <mat-option value="contributor">Contributor</mat-option>
                 <mat-option value="creativity">Creativity</mat-option>
@@ -93,6 +97,7 @@
         </mat-form-field>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-        <button mat-button matDialogClose color="primary">Shutdown dialog</button>
+        <button mat-button color="primary" (click)="closeDialog('hashtag')">OK</button>
+        <button mat-button color="primary" (click)="cancelDialog('hashtag')">Cancel</button>
     </mat-dialog-actions>
 </ng-template>

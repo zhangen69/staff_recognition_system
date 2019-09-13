@@ -12,6 +12,7 @@ export class NewsfeedFormComponent implements OnInit {
   @ViewChild('hashtag_dialog', { static: true }) hashtag_dialog: TemplateRef<any>;
 
   formData: any = {};
+  dialogForm: any = {};
 
   constructor(private dialog: MatDialog) { }
 
@@ -20,6 +21,15 @@ export class NewsfeedFormComponent implements OnInit {
 
   openDialogWithoutRef(templateName) {
     this.dialog.open(this[templateName]);
+  }
+
+  closeDialog(prop) {
+    this.formData[prop] = this.dialogForm[prop];
+    this.dialog.closeAll();
+  }
+
+  cancelDialog(prop) {
+    this.dialog.closeAll();
   }
 
 }
