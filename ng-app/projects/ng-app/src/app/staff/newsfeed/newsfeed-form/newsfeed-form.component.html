@@ -11,6 +11,9 @@
         </button>
     </mat-card-title>
     <mat-card-content>
+        <p *ngIf="formData.bonus">+{{ formData.bonus }}</p>
+        <p *ngIf="formData.receiver">@{{ formData.receiver }}</p>
+        <p *ngIf="formData.hashtag">#{{ formData.hashtag }}</p>
         <mat-form-field class="message-input">
             <textarea matInput [(ngModel)]="formData.message" placeholder="Enter message..." rows="4"
                 required></textarea>
@@ -45,7 +48,7 @@
     <h2 matDialogTitle>Such dialog very wow!</h2>
     <mat-dialog-content>
         <mat-form-field>
-            <input matInput type="text" [(ngModel)]="formData.person" placeholder="Select a staff...">
+            <input matInput type="text" [(ngModel)]="formData.receiver" placeholder="Select a staff...">
         </mat-form-field>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
