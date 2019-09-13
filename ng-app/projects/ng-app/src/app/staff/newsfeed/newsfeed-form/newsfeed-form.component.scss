@@ -27,3 +27,11 @@ mat-card-actions {
         display: inline-block;
     }
 }
+
+.message-input {
+    width: 100%;
+
+    textarea {
+        resize: none;
+    }
+}
