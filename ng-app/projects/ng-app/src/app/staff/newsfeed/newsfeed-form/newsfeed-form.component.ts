@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-newsfeed-form',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./newsfeed-form.component.scss']
 })
 export class NewsfeedFormComponent implements OnInit {
+  @ViewChild('secondDialog', { static: true }) secondDialog: TemplateRef<any>;
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit() {
+  }
+
+  openDialogWithoutRef() {
+    this.dialog.open(this.secondDialog);
   }
 
 }

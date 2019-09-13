@@ -25,3 +25,15 @@
         </div>
     </mat-card-actions>
 </mat-card>
+
+<button mat-button (click)="openDialogWithoutRef()">Open dialog without template ref</button>
+
+  <ng-template #secondDialog>
+    <h2 matDialogTitle>Such dialog very wow!</h2>
+    <mat-dialog-content>
+      <p><em>*insert meme here*</em></p>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button matDialogClose color="primary">Shutdown dialog</button>
+    </mat-dialog-actions>
+  </ng-template>
