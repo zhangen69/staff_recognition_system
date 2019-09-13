@@ -13,7 +13,9 @@
         </button>
     </mat-card-title>
     <mat-card-content>
-        <textarea matInput [(ngModel)]="formData.message"></textarea>
+        <mat-form-field>
+            <textarea matInput [(ngModel)]="formData.message" placeholder="Enter message..." required></textarea>
+        </mat-form-field>
     </mat-card-content>
     <mat-card-actions>
         <button mat-raised-button>#TicMe</button>
@@ -31,7 +33,9 @@
 <ng-template #add_bonus_dialog>
     <h2 matDialogTitle>Such dialog very wow!</h2>
     <mat-dialog-content>
-        <input type="text" [(ngModel)]="formData.bonus">
+        <mat-form-field>
+            <input matInput type="number" [(ngModel)]="formData.bonus" placeholder="Enter bonus amount...">
+        </mat-form-field>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
         <button mat-button matDialogClose color="primary">Shutdown dialog</button>
@@ -41,7 +45,9 @@
 <ng-template #tag_person_dialog>
     <h2 matDialogTitle>Such dialog very wow!</h2>
     <mat-dialog-content>
-        <input type="text" [(ngModel)]="formData.person">
+        <mat-form-field>
+            <input matInput type="text" [(ngModel)]="formData.person" placeholder="Select a staff...">
+        </mat-form-field>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
         <button mat-button matDialogClose color="primary">Shutdown dialog</button>
@@ -51,7 +57,9 @@
 <ng-template #hashtag_dialog>
     <h2 matDialogTitle>Such dialog very wow!</h2>
     <mat-dialog-content>
-        <input type="text" [(ngModel)]="formData.hashtag">
+        <mat-form-field>
+            <input matInput type="text" [(ngModel)]="formData.hashtag" placeholder="Select a hashtag...">
+        </mat-form-field>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
         <button mat-button matDialogClose color="primary">Shutdown dialog</button>
