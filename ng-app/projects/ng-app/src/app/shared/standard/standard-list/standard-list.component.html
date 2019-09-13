@@ -1,5 +1,5 @@
 <div class="action-group">
-    <a [routerLink]="['/' + domainName + '/add']" routerLinkActive="router-link-active" mat-raised-button *ngIf="showDefaultBtn">
+    <a [routerLink]="[addNewItemLink]" routerLinkActive="router-link-active" mat-raised-button *ngIf="showDefaultBtn">
         <mat-icon>insert_drive_file</mat-icon> New {{ title }}
     </a>
     <ng-container *ngFor="let action of actions">

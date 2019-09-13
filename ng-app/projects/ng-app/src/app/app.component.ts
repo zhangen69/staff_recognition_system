@@ -14,46 +14,21 @@ export class AppComponent implements OnInit, OnDestroy {
   sidenavOpened = true;
   mobileQuery: MediaQueryList;
   routes = [
+      { name: 'Newsfeed', url: '/newsfeed' },
       {
           name: 'Profile',
-          children: [{ url: '/user/profile', name: 'My Profile' }, { url: '/user/changePassword', name: 'Change Password' }]
-      },
-      {
-          name: 'Event',
           children: [
-              { url: '/event-plan/list', name: 'Event Plans' },
-              { url: '/event/list', name: 'Events' },
-              // { url: '/registration-form/list', name: 'Registration Forms' },
-              { url: '/attendee/list', name: 'Attendees' },
-              { url: '/attendee-group/list', name: 'Attendee Groups' },
-              { url: '/payment/list', name: 'Payments' },
-              { url: '/supplier-invoice/list', name: 'Supplier Invoices' },
-              { url: '/payment-voucher/list', name: 'Payment Vouchers' }
-          ]
-      },
-      { url: '/customer/list', name: 'Customers' },
-      {
-          name: 'Invoice & Receipt',
-          children: [{ url: '/invoice/list', name: 'Invoice List' }, { url: '/receipt/list', name: 'Receipt List' }]
+              { url: '/user/profile', name: 'My Profile' },
+              { url: '/user/changePassword', name: 'Change Password' }
+            ]
       },
       {
-          name: 'Inventory',
+          name: 'Staff',
           children: [
-              { url: '/store/list', name: 'Stores' },
-              { url: '/stock-item/list', name: 'Stock Items' },
-              { url: '/stock-transaction/list', name: 'Stock Transactions' }
-          ]
+              { url: '/admin/staff', name: 'Manage' },
+              { url: '/admin/staff/add', name: 'New' }
+            ]
       },
-      {
-          name: 'Service & Facility',
-          children: [
-              { url: '/provider/list', name: 'Providers' },
-              { url: '/provider-service/list', name: 'Provider Services' },
-              { url: '/provider-facility/list', name: 'Provider Facilities' },
-              { url: '/category/list', name: 'Categories' }
-          ]
-      },
-      { name: 'User', children: [{ url: '/user/list', name: 'User List' }] }
   ];
 
   private _mobileQueryListener: () => void;

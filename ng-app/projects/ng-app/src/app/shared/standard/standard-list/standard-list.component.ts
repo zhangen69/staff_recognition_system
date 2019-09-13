@@ -24,6 +24,7 @@ export class StandardListComponent implements OnInit, AfterViewInit {
     @Input() title: string;
     @Input() actions: any[];
     @Input() queryModel: any;
+    @Input() addNewItemLink: string;
     @Input()
     set includes(includes: string[]) {
         if (!this.queryModel) {
@@ -58,6 +59,10 @@ export class StandardListComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
         this.initial(this.domainName);
+
+        if (!this.addNewItemLink) {
+            this.addNewItemLink = '/' + this.domainName + '/add';
+        }
 
         this.displayedColumns = this.columns.map(x => x.name);
         this.displayedColumns.unshift('checkbox');

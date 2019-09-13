@@ -33,7 +33,7 @@ const routes: Routes = [
         path: 'claimable',
         children: [
           {
-            path: 'new',
+            path: 'add',
             component: ClaimableFormComponent
           },
           {
@@ -54,7 +54,7 @@ const routes: Routes = [
         path: 'manual',
         children: [
           {
-            path: 'new',
+            path: 'add',
             component: ManualFormComponent
           },
           {
@@ -86,7 +86,7 @@ const routes: Routes = [
         component: StaffListComponent,
       },
       {
-        path: 'new',
+        path: 'add',
         component: StaffFormComponent
       },
       {

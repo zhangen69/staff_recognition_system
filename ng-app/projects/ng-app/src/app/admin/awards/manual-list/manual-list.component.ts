@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManualListComponent implements OnInit {
   // showDefaultBtn = false;
+  addNewItemLink = '/admin/awards/manual/add';
   columns = [
     { name: 'displayName', format: 'link', link: '/staff/view' },
     { name: 'email' },
