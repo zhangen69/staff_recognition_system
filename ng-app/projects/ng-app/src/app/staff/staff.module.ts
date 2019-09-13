@@ -15,10 +15,11 @@ import { ProfileAchievementsComponent } from './profile/profile-achievements/pro
 import { StaffRoutingModule } from './staff.routing.module';
 import { MaterialModule } from '../material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [NewsfeedFormComponent, NewsfeedListComponent, NewsfeedDetailComponent, NewsfeedDashboardComponent, NewsfeedGameComponent, ProfileDashboardComponent, ProfileBadgesComponent, ProfileRewardsComponent, ProfileTeamsComponent, ProfileSentComponent, ProfileReceivedComponent, ProfileAchievementsComponent],
-  imports: [StaffRoutingModule, CommonModule, MaterialModule, FlexLayoutModule]
+  imports: [FormsModule, StaffRoutingModule, CommonModule, MaterialModule, FlexLayoutModule]
 })
 export class StaffModule { }

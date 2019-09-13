@@ -2,18 +2,18 @@
 
 <mat-card>
     <mat-card-title>
-        <button mat-icon-button>
+        <button mat-icon-button (click)="openDialogWithoutRef('add_bonus_dialog')">
             <mat-icon>add</mat-icon>
         </button>
-        <button mat-icon-button>
+        <button mat-icon-button (click)="openDialogWithoutRef('tag_person_dialog')">
             <mat-icon>perm_identity</mat-icon>
         </button>
-        <button mat-icon-button class="hashtag-btn">
+        <button mat-icon-button class="hashtag-btn" (click)="openDialogWithoutRef('hashtag_dialog')">
             <mat-icon>#</mat-icon>
         </button>
     </mat-card-title>
     <mat-card-content>
-        <p>+5 @annie #teamwork Great Work!</p>
+        <textarea matInput [(ngModel)]="formData.message"></textarea>
     </mat-card-content>
     <mat-card-actions>
         <button mat-raised-button>#TicMe</button>
@@ -25,15 +25,35 @@
         </div>
     </mat-card-actions>
 </mat-card>
-
+{{ formData | json }}
 <button mat-button (click)="openDialogWithoutRef()">Open dialog without template ref</button>
 
-  <ng-template #secondDialog>
+<ng-template #add_bonus_dialog>
     <h2 matDialogTitle>Such dialog very wow!</h2>
     <mat-dialog-content>
-      <p><em>*insert meme here*</em></p>
+        <input type="text" [(ngModel)]="formData.bonus">
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-      <button mat-button matDialogClose color="primary">Shutdown dialog</button>
+        <button mat-button matDialogClose color="primary">Shutdown dialog</button>
     </mat-dialog-actions>
-  </ng-template>
+</ng-template>
+
+<ng-template #tag_person_dialog>
+    <h2 matDialogTitle>Such dialog very wow!</h2>
+    <mat-dialog-content>
+        <input type="text" [(ngModel)]="formData.person">
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button matDialogClose color="primary">Shutdown dialog</button>
+    </mat-dialog-actions>
+</ng-template>
+
+<ng-template #hashtag_dialog>
+    <h2 matDialogTitle>Such dialog very wow!</h2>
+    <mat-dialog-content>
+        <input type="text" [(ngModel)]="formData.hashtag">
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button matDialogClose color="primary">Shutdown dialog</button>
+    </mat-dialog-actions>
+</ng-template>
