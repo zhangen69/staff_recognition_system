@@ -10,6 +10,7 @@ import { AuthService } from '../../../shared/auth/auth.service';
   styleUrls: ['./newsfeed-detail.component.scss']
 })
 export class NewsfeedDetailComponent implements OnInit {
+  // tslint:disable-next-line: no-input-rename
   @Input('data')
   post: any;
   showComments = false;
