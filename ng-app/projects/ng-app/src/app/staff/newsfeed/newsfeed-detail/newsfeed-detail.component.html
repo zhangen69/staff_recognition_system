@@ -35,17 +35,19 @@
       <mat-icon>thumb_up</mat-icon> Like
     </button>
   </mat-card-actions>
-  <mat-card-footer *ngIf="showComments || showCommentInput">
-    <ng-container *ngIf="showComments">
-      <p><span matBadge="P1" matBadgeOverlap="true"></span>Person1: Comment1</p>
-      <p><span matBadge="P2" matBadgeOverlap="true"></span>Person2: Comment2</p>
-      <p><span matBadge="P3" matBadgeOverlap="true"></span>Person3: Comment3</p>
-      <p><span matBadge="P4" matBadgeOverlap="true"></span>Person4: Comment4</p>
-      <p><span matBadge="P5" matBadgeOverlap="true"></span>Person5: Comment5</p>
+  <mat-card-footer *ngIf="post.comments.length > 0 || showCommentInput">
+    <ng-container *ngIf="post.comments.length > 0">
+      <p class="comment-item" *ngFor="let comment of post.comments">
+        <span [matBadge]="getFirstLetter(comment.commentedBy.displayName)" matBadgeOverlap="true"></span>
+        <span>{{ comment.commentedBy.displayName }}: </span>
+        <span>{{ comment.message }}</span>
+        <span class="duration">{{ getDuration(comment.createdDate) }}</span>
+      </p>
     </ng-container>
 
     <mat-form-field *ngIf="showCommentInput" floatLabel="always">
-      <textarea matInput type="text" placeholder="Add a comment"></textarea>
+      <textarea matInput type="text" placeholder="Add a comment" [(ngModel)]="postComment"></textarea>
+      <button mat-raised-button (click)="sendComment()">Send</button>
     </mat-form-field>
   </mat-card-footer>
 </mat-card>

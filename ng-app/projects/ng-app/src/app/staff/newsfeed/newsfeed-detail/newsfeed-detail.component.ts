@@ -18,16 +18,14 @@ export class NewsfeedDetailComponent implements OnInit {
   authUser: any;
   likedPost: boolean;
   apiUrl = environment.apiUrl;
+  postComment: string;
 
   constructor(private authService: AuthService, private http: HttpClient) {
     this.authUser = JSON.parse(authService.getUserData());
   }
 
   ngOnInit() {
-    const now = moment();
-    const lastUpdate = moment(this.post.audit.updatedDate);
-    const diff = lastUpdate.diff(now, 'minutes');
-    this.lastUpdateDuration = moment.duration(diff, 'minutes').humanize(true);
+    this.lastUpdateDuration = this.getDuration(this.post.audit.updatedDate);
     console.log(this.authUser._id);
     const likeIndex = this.post.likes.findIndex((element) => {
       return element.likedBy === this.authUser._id;
@@ -38,7 +36,7 @@ export class NewsfeedDetailComponent implements OnInit {
   }
 
   onPostById(id: string) {
-    const includes = ['receiver', 'audit.createdBy'];
+    const includes = ['receiver', 'audit.createdBy', 'comments.commentedBy'];
     this.http.get(this.apiUrl + '/service/post/' + id + '?includes=' + includes.join(',')).subscribe(({ data }: any) => {
       this.post = data;
     });
@@ -77,6 +75,25 @@ export class NewsfeedDetailComponent implements OnInit {
     this.http.post(this.apiUrl + '/service/post', this.post).subscribe(() => {
       this.onPostById(this.post._id);
     });
+  }
+
+  sendComment() {
+    const data = {
+      commentedBy: this.authUser._id,
+      message: this.postComment,
+    };
+    this.post.comments.push(data);
+
+    this.http.post(this.apiUrl + '/service/post', this.post).subscribe(() => {
+      this.onPostById(this.post._id);
+    });
+  }
+
+  getDuration(date) {
+    const now = moment();
+    const lastUpdate = moment(date);
+    const diff = lastUpdate.diff(now, 'minutes');
+    return moment.duration(diff, 'minutes').humanize(true);
   }
 
 }

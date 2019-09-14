@@ -32,7 +32,7 @@ export class NewsfeedListComponent implements OnInit {
 
   onLoadPage() {
     const queryModel = {
-      includes: ['receiver', 'audit.createdBy'],
+      includes: ['receiver', 'audit.createdBy', 'comments.commentedBy'],
     };
     this.http.get(this.apiUrl + '/service/post?queryModel=' + JSON.stringify(queryModel)).subscribe(({ data }: any) => {
       this.posts = data;
