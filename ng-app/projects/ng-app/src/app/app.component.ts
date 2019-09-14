@@ -29,6 +29,13 @@ export class AppComponent implements OnInit, OnDestroy {
               { url: '/admin/staff/add', name: 'New' }
             ]
       },
+      {
+          name: 'Award',
+          children: [
+              { url: '/admin/awards/manual', name: 'Manage Manual' },
+              { url: '/admin/awards/manual/add', name: 'New Manual' },
+          ]
+      }
   ];
 
   private _mobileQueryListener: () => void;
