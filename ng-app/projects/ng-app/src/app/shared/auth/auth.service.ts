@@ -39,7 +39,7 @@ export class AuthService {
         this.authStatusListerner.next(true);
         const now = new Date();
         const expiration = new Date(now.getTime() + (expiresIn));
-        this.saveAuthData(this.token, expiration);
+        this.saveAuthData(res.user, this.token, expiration);
         this.toastr.success(res.message);
         this.router.navigate(['/']);
       }
@@ -117,12 +117,14 @@ export class AuthService {
     }, duration);
   }
 
-  private saveAuthData(token: string, expirationDate: Date) {
+  private saveAuthData(user: any, token: string, expirationDate: Date) {
+    localStorage.setItem('user', JSON.stringify(user));
     localStorage.setItem('token', token);
     localStorage.setItem('expiration', expirationDate.toISOString());
   }
 
   private clearAuthData() {
+    localStorage.removeItem('user');
     localStorage.removeItem('token');
     localStorage.removeItem('expiration');
   }
@@ -130,10 +132,21 @@ export class AuthService {
   private getAuthData() {
     const token = localStorage.getItem('token');
     const expiration = localStorage.getItem('expiration');
+    const user = this.getUserData();
     if (!token || !expiration) {
       return;
     }
 
-    return { token, expiration: new Date(expiration) };
+    return { token, user, expiration: new Date(expiration) };
+  }
+
+  getUserData() {
+    const user = localStorage.getItem('user');
+
+    if (!user) {
+      return;
+    }
+
+    return user;
   }
 }

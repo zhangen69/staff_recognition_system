@@ -1,10 +1,10 @@
 <mat-card>
   <mat-card-title></mat-card-title>
   <mat-card-content>
-    <a href="#" class="profile-link">{{ data.audit.createdBy.username }}</a>
+    <a href="#" class="profile-link">{{ post.audit.createdBy.username }}</a>
     <div class="badge-group">
-      <span [matBadge]="'+' + data.bonus" matBadgeOverlap="true"></span>
-      <span [matBadge]="getFirstLetter(data.receiver.username)" matBadgeOverlap="true"></span>
+      <span [matBadge]="'+' + post.bonus" matBadgeOverlap="true"></span>
+      <span [matBadge]="getFirstLetter(post.receiver.username)" matBadgeOverlap="true"></span>
     </div>
     <div class="more-info">
       <span class="duration">{{ lastUpdateDuration }}</span>
@@ -12,19 +12,18 @@
         <mat-icon>more_horiz</mat-icon>
       </button>
     </div>
-    <p>good, thanks for helping!</p>
+    <p>{{ post.message }}</p>
     <div class="hashtag-group">
-      <span class="hashtag-link">#teamwork</span>
-      <span class="hashtag-link">#problemsolver</span>
+      <span class="hashtag-link">#{{ post.hashtag }}</span>
     </div>
     <div class="info-group">
       <span class="info-likes">
         <mat-icon class="icon-sm" color="accent">thumb_up</mat-icon>
-        <span class="info">10</span>
+        <span class="info">{{ post.likes.length }}</span>
       </span>
       <span class="info-comments" (click)="showCommentsToggle()">
         <mat-icon class="icon-sm" color="accent">add_comment</mat-icon>
-        <span class="info">10</span>
+        <span class="info">{{ post.comments.length }}</span>
       </span>
     </div>
   </mat-card-content>
@@ -32,8 +31,8 @@
     <button mat-raised-button (click)="addCommentToggle()">
       <mat-icon>add_comment</mat-icon> Comment
     </button>
-    <button mat-raised-button color="primary">
-      <mat-icon>thumb_up</mat-icon> React
+    <button mat-raised-button [color]="likedPost ? 'primary' : ''" (click)="likePost()">
+      <mat-icon>thumb_up</mat-icon> Like
     </button>
   </mat-card-actions>
   <mat-card-footer *ngIf="showComments || showCommentInput">
@@ -51,4 +50,4 @@
   </mat-card-footer>
 </mat-card>
 
-{{ data | json}}
+<pre>{{ post | json}}</pre>

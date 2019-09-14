@@ -4,14 +4,12 @@ import auditable from './auditable.model';
 const PostLikeSchema = new mongoose.Schema({
     likedBy: { type: mongoose.Types.ObjectId, ref: 'User' },
     createdDate: { type: Date, default: Date.now },
-    updatedDate: { type: Date, default: Date.now },
 });
 
 const PostCommentSchema = new mongoose.Schema({
     commentedBy: { type: mongoose.Types.ObjectId, ref: 'User' },
     message: { type: String },
     createdDate: { type: Date, default: Date.now },
-    updatedDate: { type: Date, default: Date.now },
 });
 
 const PostSchema = new mongoose.Schema({

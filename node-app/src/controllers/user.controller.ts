@@ -58,6 +58,12 @@ class Controller {
             message: `logged in!`,
             token: jwt.sign({ username: user.username, _id: user._id }, 'secret this should be longer', { expiresIn: '1d' }),
             expiresIn: 60 * 60 * 24 * 1000,
+            user: {
+                _id: user._id,
+                username: user.username,
+                displayName: user.displayName,
+                email: user.email,
+            },
         };
 
         if (user.accessFailedCount > 0) {

@@ -14,8 +14,9 @@ router.post(
   checkAuth,
   (req: Request, res: Response, next: NextFunction) => {
     const controller: IController = req['controller'];
+    console.log('is update?', !!req.body._id);
     const func = req.body._id ? controller.update : controller.create;
-    const action = from(func(controller.model, req.body, req['auth']));
+    const action = from(func(controller, req.body, req['auth']));
     action.subscribe(
       (result: IResult) => {
         res.status(result.status).json(result);
@@ -60,6 +61,7 @@ router.get(
         res.status(result.status).json(result);
       },
       (result: IResult) => {
+        console.log('err');
         res.status(result.status).json(result);
       },
     );

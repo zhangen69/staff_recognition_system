@@ -21,18 +21,18 @@ export default class StandardController {
 
   // CRUD functions - create, fetch, fetchAll, update, delete
 
-  public create(model, data, auth) {
+  public create(ctrl, data, auth) {
     if (auth.isAuth) {
       data.audit = { updatedBy: auth.user._id, createdBy: auth.user._id };
     }
-    const newModel = new model(data);
+    const newModel = new ctrl.model(data);
     return new Promise((resolve, reject) => {
       newModel
         .save()
         .then((data) => {
           const result = {
             status: 201,
-            message: `${model.modelName} created successfully!`,
+            message: `${ctrl.model.modelName} created successfully!`,
             data,
           };
           resolve(result);
@@ -40,7 +40,7 @@ export default class StandardController {
         .catch((error) => {
           const result = {
             status: 500,
-            message: `${model.modelName} failed to create!`,
+            message: `${ctrl.model.modelName} failed to create!`,
             error: error.toString(),
           };
           reject(result);
@@ -110,22 +110,23 @@ export default class StandardController {
     });
   }
 
-  public update(model, auth) {
+  public update(ctrl, data, auth) {
     return new Promise((resolve, reject) => {
-      this.model
-        .findById(model._id)
+      ctrl.model
+        .findById(data._id)
         .then((doc) => {
           if (doc == null) {
-            throw new Error(`${this.modelName} not found!`);
+            throw new Error(`${ctrl.model.modelName} not found!`);
           }
 
-          doc.updateOne(this._getUpdateConditions(model, auth)).then(() => {
-            this.model.findById(model._id).then((data) => {
+          doc.updateOne(ctrl._getUpdateConditions(data, auth)).then(() => {
+            ctrl.model.findById(data._id).then((data) => {
               const result = {
                 status: 201,
-                message: `${this.modelName} updated successfully!`,
+                message: `${ctrl.model.modelName} updated successfully!`,
                 data,
               };
+              console.log('updated');
               resolve(result);
             });
           });
@@ -133,7 +134,7 @@ export default class StandardController {
         .catch((error) => {
           const result = {
             status: 500,
-            message: `${this.modelName} failed to update!`,
+            message: `${ctrl.model.modelName} failed to update!`,
             error: error.toString(),
           };
           reject(result);
@@ -168,6 +169,7 @@ export default class StandardController {
   }
 
   private _getUpdateConditions(model, auth) {
+    console.log(model);
     const updateModel: IMongooseQueryModel = { $set: model };
 
     if (model.hasOwnProperty('audit')) {
