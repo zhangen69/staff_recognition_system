@@ -48,30 +48,41 @@ export default class StandardController {
     });
   }
 
-  public fetch(id) {
+  public fetch(id, query) {
     return new Promise((resolve, reject) => {
-      this.model
-        .findById(id)
-        .then((data) => {
-          if (data == null) {
-            throw new Error('Product not found!');
-          }
+      let includes = [];
 
-          const result = {
-            status: 200,
-            message: `${this.modelName} fetched successfully!`,
-            data,
-          };
-          resolve(result);
-        })
-        .catch((error) => {
-          const result = {
-            status: 500,
-            message: `${this.modelName} not found!`,
-            error: error.toString(),
-          };
-          reject(result);
+      if (query['includes']) {
+        includes = query['includes'].split(',');
+      }
+
+      let func = this.model.findById(id);
+
+      if (includes.length > 0) {
+        includes.forEach((include) => {
+          func = func.populate(include);
         });
+      }
+
+      func.then((data) => {
+        if (data == null) {
+          throw new Error('item not found!');
+        }
+
+        const result = {
+          status: 200,
+          message: `${this.modelName} fetched successfully!`,
+          data,
+        };
+        resolve(result);
+      }).catch((error) => {
+        const result = {
+          status: 500,
+          message: `${this.modelName} not found!`,
+          error: error.toString()
+        };
+        reject(result);
+      });
     });
   }
 
@@ -126,7 +137,6 @@ export default class StandardController {
                 message: `${ctrl.model.modelName} updated successfully!`,
                 data,
               };
-              console.log('updated');
               resolve(result);
             });
           });
@@ -169,7 +179,6 @@ export default class StandardController {
   }
 
   private _getUpdateConditions(model, auth) {
-    console.log(model);
     const updateModel: IMongooseQueryModel = { $set: model };
 
     if (model.hasOwnProperty('audit')) {

@@ -39,7 +39,7 @@ export class NewsfeedDetailComponent implements OnInit {
 
   onPostById(id: string) {
     const includes = ['receiver', 'audit.createdBy'];
-    this.http.get(this.apiUrl + '/service/post/' + id + '?includes=' + JSON.stringify(includes)).subscribe(({ data }: any) => {
+    this.http.get(this.apiUrl + '/service/post/' + id + '?includes=' + includes.join(',')).subscribe(({ data }: any) => {
       this.post = data;
     });
   }
