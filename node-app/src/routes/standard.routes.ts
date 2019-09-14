@@ -53,15 +53,13 @@ router.get(
   checkAuth,
   (req: Request, res: Response, next: NextFunction) => {
     const controller: IController = req['controller'];
-    const queryModel = req.query.queryModel || {};
-    const action = from(controller.fetchAll(queryModel));
+    const queryModel = req.query.queryModel || '{}';
+    const action = from(controller.fetchAll(JSON.parse(queryModel)));
     action.subscribe(
       (result: IResult) => {
-        console.log(result);
         res.status(result.status).json(result);
       },
       (result: IResult) => {
-        console.log(result);
         res.status(result.status).json(result);
       },
     );

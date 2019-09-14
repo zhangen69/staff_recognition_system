@@ -128,9 +128,7 @@ class Controller {
         }
         const count = await this.estimatedDocumentCount(conditions);
         const users = await this.findUsers(conditions, options);
-        
-        console.log(users);
-    
+
         return {
             status: 200,
             data: mapColletionToUserDTO(users),

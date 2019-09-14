@@ -25,8 +25,6 @@ export default class StandardController {
     if (auth.isAuth) {
       data.audit = { updatedBy: auth.user._id, createdBy: auth.user._id };
     }
-    // console.log(model);
-    // const DataModel = this.model;
     const newModel = new model(data);
     return new Promise((resolve, reject) => {
       newModel
@@ -83,25 +81,31 @@ export default class StandardController {
 
       const tempConditions = { name: /e/i };
       const sortQuery = (options.sortDirection === 0 ? '' : '-') + options.sort;
-      console.log('3');
-      console.log('queryModel', queryModel);
       this.model.countDocuments(conditions).then((count) => {
-        this.model
+        let func = this.model
           .find(conditions)
           .sort(sortQuery)
           .skip(options.skip)
-          .limit(options.limit)
-          .then((data) => {
-            const result = {
-              status: 200,
-              message: `${this.modelName} fetched all successfully!`,
-              data,
-              totalItems: count,
-              currentPage: queryModel.currentPage,
-              totalPages: Math.ceil(count / queryModel.pageSize),
-            };
-            resolve(result);
+          .limit(options.limit);
+
+        if (queryModel.includes && queryModel.includes.length > 0) {
+          queryModel.includes.forEach((include) => {
+            func = func.populate(include);
           });
+        }
+
+        func.then((data) => {
+          const result = {
+            status: 200,
+            message: `${this.modelName} fetched all successfully!`,
+            data,
+            totalItems: count,
+            currentPage: queryModel.currentPage,
+            totalPages: Math.ceil(count / queryModel.pageSize),
+          };
+          resolve(result);
+        });
+
       });
     });
   }
