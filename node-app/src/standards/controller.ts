@@ -79,7 +79,7 @@ export default class StandardController {
         const result = {
           status: 500,
           message: `${this.modelName} not found!`,
-          error: error.toString()
+          error: error.toString(),
         };
         reject(result);
       });
