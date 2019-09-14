@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-newsfeed-detail',
@@ -10,10 +11,15 @@ export class NewsfeedDetailComponent implements OnInit {
   data: any;
   showComments = false;
   showCommentInput = false;
+  lastUpdateDuration = '2 min ago';
 
   constructor() { }
 
   ngOnInit() {
+    const now = moment();
+    const lastUpdate = moment(this.data.audit.updatedDate);
+    const diff = lastUpdate.diff(now, 'minutes');
+    this.lastUpdateDuration = moment.duration(diff, 'minutes').humanize(true);
   }
 
   showCommentsToggle(isShow) {
@@ -22,6 +28,10 @@ export class NewsfeedDetailComponent implements OnInit {
 
   addCommentToggle(isShow) {
     this.showCommentInput = isShow || !this.showCommentInput;
+  }
+
+  getFirstLetter(name) {
+    return name.split('')[0].toUpperCase();
   }
 
 }
