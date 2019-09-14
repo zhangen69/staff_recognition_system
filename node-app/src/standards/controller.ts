@@ -15,26 +15,26 @@ export default class StandardController {
   }
 
   public async getModule() {
-    console.log('1');
     const selectedModule = await import(`../models/${this.modelName}.model`);
-    console.log('2');
     this.model = selectedModule.default;
   }
 
   // CRUD functions - create, fetch, fetchAll, update, delete
 
-  public create(model, auth) {
+  public create(model, data, auth) {
     if (auth.isAuth) {
-      model.audit = { updatedBy: auth.user._id, createdBy: auth.user._id };
+      data.audit = { updatedBy: auth.user._id, createdBy: auth.user._id };
     }
-    const newModel = new this.model(model);
+    // console.log(model);
+    // const DataModel = this.model;
+    const newModel = new model(data);
     return new Promise((resolve, reject) => {
       newModel
         .save()
         .then((data) => {
           const result = {
             status: 201,
-            message: `${this.modelName} created successfully!`,
+            message: `${model.modelName} created successfully!`,
             data,
           };
           resolve(result);
@@ -42,7 +42,7 @@ export default class StandardController {
         .catch((error) => {
           const result = {
             status: 500,
-            message: `${this.modelName} failed to create!`,
+            message: `${model.modelName} failed to create!`,
             error: error.toString(),
           };
           reject(result);

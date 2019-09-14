@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -14,7 +15,7 @@ export class NewsfeedFormComponent implements OnInit {
   formData: any = {};
   dialogForm: any = {};
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private http: HttpClient) { }
 
   ngOnInit() {
   }
@@ -30,6 +31,13 @@ export class NewsfeedFormComponent implements OnInit {
 
   cancelDialog(prop) {
     this.dialog.closeAll();
+  }
+
+  onCreatePost() {
+    this.http.post('http://localhost:3000/service/post', this.formData).subscribe(({ data }: any) => {
+      console.log(data);
+      debugger;
+    });
   }
 
 }

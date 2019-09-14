@@ -20,7 +20,7 @@
         </mat-form-field>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-raised-button>#TicMe</button>
+        <button mat-raised-button (click)="onCreatePost()">#TicMe</button>
         <div class="action-group">
             <mat-icon>emoji_emotions</mat-icon>
             <mat-icon>gif</mat-icon>
@@ -48,9 +48,6 @@
 <ng-template #tag_person_dialog>
     <h2 matDialogTitle>Such dialog very wow!</h2>
     <mat-dialog-content>
-        <!-- <mat-form-field>
-            <input matInput type="text" [(ngModel)]="formData.receiver" placeholder="Select a staff...">
-        </mat-form-field> -->
         <app-standard-form-field form="form"
             [field]="{ type: 'ref', name: 'receiver', ref: 'user', displayName: 'Receiver', refName: 'displayName' }"
             [(formData)]="dialogForm"></app-standard-form-field>
@@ -65,7 +62,6 @@
     <h2 matDialogTitle>Such dialog very wow!</h2>
     <mat-dialog-content>
         <mat-form-field>
-            <!-- <input matInput type="text" [(ngModel)]="formData.hashtag" placeholder="Select a hashtag..."> -->
             <mat-label>Hashtag</mat-label>
             <mat-select [(ngModel)]="dialogForm.hashtag">
                 <mat-option value="collaborator">Collaborator</mat-option>
