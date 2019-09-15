@@ -1,4 +1,4 @@
-export interface IStandardFormField {
+interface IStandardFormField {
   name: string;
   type: string;
   displayName?: string;
@@ -13,3 +13,13 @@ export interface IStandardFormField {
   fields?: any[];
   add?: any;
 }
+
+interface IStandardColumn {
+  name: string;
+  type?: string;
+  displayName?: string;
+  format?: string;
+
+}
+
+export { IStandardFormField, IStandardColumn };

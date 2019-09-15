@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IStandardColumn } from '../../../shared/standard/standard-form-field.interface';
 
 @Component({
   selector: 'app-manual-list',
@@ -8,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class ManualListComponent implements OnInit {
   // showDefaultBtn = false;
   addNewItemLink = '/admin/awards/manual/add';
-  columns = [
-    { name: 'displayName', format: 'link', link: '/staff/view' },
-    { name: 'email' },
-    { name: 'phoneNumber' },
+  includes = ['receiver'];
+  columns: IStandardColumn[] = [
+    { name: 'role' },
+    { name: 'receiver.displayName', displayName: 'Receiver' },
+    { name: 'bonus' },
+    { name: 'message' },
   ];
   filterList = [];
   actions = [];
