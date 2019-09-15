@@ -23,8 +23,11 @@ const routes: Routes = [
     },
     {
         path: 'profile',
-        component: ProfileDashboardComponent,
         children: [
+            {
+                path: '',
+                component: ProfileDashboardComponent,
+            },
             {
                 path: 'achievements',
                 component: ProfileAchievementsComponent,

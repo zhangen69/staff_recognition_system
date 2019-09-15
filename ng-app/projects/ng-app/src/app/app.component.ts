@@ -18,8 +18,8 @@ export class AppComponent implements OnInit, OnDestroy {
       {
           name: 'Profile',
           children: [
-              { url: '/user/profile', name: 'My Profile' },
-              { url: '/user/changePassword', name: 'Change Password' }
+              { url: '/profile', name: 'My Profile' },
+            //   { url: '/profile/changePassword', name: 'Change Password' }
             ]
       },
       {
