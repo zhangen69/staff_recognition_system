@@ -39,15 +39,16 @@ export class AppComponent implements OnInit, OnDestroy {
   ];
 
   private _mobileQueryListener: () => void;
-  private authListenerSubs: Subscription;
 
   constructor(private authService: AuthService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
       this.mobileQuery = media.matchMedia('(max-width: 600px)');
       this._mobileQueryListener = () => changeDetectorRef.detectChanges();
       this.mobileQuery.addListener(this._mobileQueryListener);
       this.isAuth = this.authService.getIsAuth();
-      this.authListenerSubs = this.authService.getAuthStatusListener().subscribe(isAuth => {
+      this.sidenavOpened = this.isAuth;
+      this.authService.getAuthStatusListener().subscribe(isAuth => {
           this.isAuth = isAuth;
+          this.sidenavOpened = isAuth;
       });
   }
 

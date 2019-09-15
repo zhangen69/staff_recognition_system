@@ -24,7 +24,8 @@ import { AuthInterceptor } from './shared/auth/auth.interceptor';
     AdminModule,
     StaffModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    SharedModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
