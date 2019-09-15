@@ -2,11 +2,11 @@
     width: 200px;
 
     > * {
-        padding: 15px 10px;
-        background: #ffffff;
     }
 
     .profile-info {
+        padding: 15px 10px;
+        background: #ffffff;
         margin-bottom: 15px;
         text-align: center;
 
@@ -22,10 +22,13 @@
         flex-direction: row;
 
         > div {
+            padding: 15px 0;
+            background: #ffffff;
             display: flex;
             flex-direction: column;
             text-align: center;
             flex: 1;
+            margin: 0 5px;
         }
     }
 }
