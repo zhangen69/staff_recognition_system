@@ -1,3 +1,5 @@
+import { environment } from './../../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-dashboard.component.scss']
 })
 export class ProfileDashboardComponent implements OnInit {
+  profile: any;
+  apiUrl = environment.apiUrl;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get(this.apiUrl + '/service/user/fetchProfile').subscribe(({ data }: any) => {
+      this.profile = data;
+    });
   }
 
 }
