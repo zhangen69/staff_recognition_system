@@ -25,6 +25,7 @@ export class StandardListComponent implements OnInit, AfterViewInit {
     @Input() actions: any[];
     @Input() queryModel: any;
     @Input() addNewItemLink: string;
+    @Input() baseUrl: string;
     @Input()
     set includes(includes: string[]) {
         if (!this.queryModel) {
@@ -59,6 +60,10 @@ export class StandardListComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
         this.initial(this.domainName);
+
+        if (!this.baseUrl) {
+            this.baseUrl = `/${this.domainName}`;
+        }
 
         if (!this.addNewItemLink) {
             this.addNewItemLink = '/' + this.domainName + '/add';

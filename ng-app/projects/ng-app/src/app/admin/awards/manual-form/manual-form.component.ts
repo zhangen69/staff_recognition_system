@@ -7,7 +7,7 @@ import { IStandardFormField } from '../../../shared/standard/standard-form-field
   styleUrls: ['./manual-form.component.scss']
 })
 export class ManualFormComponent implements OnInit {
-  includes = [];
+  includes = ['receiver'];
   fields: IStandardFormField[] = [
     { name: 'role', type: 'string', displayName: 'Role/Award Name', required: true },
     { name: 'bonus', type: 'number', required: true },
