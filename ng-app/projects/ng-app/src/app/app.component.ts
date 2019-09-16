@@ -33,7 +33,7 @@ export class AppComponent implements OnInit, OnDestroy {
           name: 'Awards',
           children: [
               { url: '/admin/awards/manual', name: 'Manage Manual' },
-            //   { url: '/admin/awards/manual/add', name: 'New Manual' },
+              { url: '/admin/awards/log', name: 'Awards Log' },
           ]
       }
   ];

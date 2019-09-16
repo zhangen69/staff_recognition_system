@@ -8,13 +8,14 @@ import { IStandardColumn } from '../../../shared/standard/standard-form-field.in
 })
 export class AwardsLogComponent implements OnInit {
   baseUrl = '/admin/awards/awards-log';
-  includes = ['sender', 'receiver'];
+  includes: string[] = ['sender', 'receiver'];
   columns: IStandardColumn[] = [
-    { name: 'sender.displayName' },
-    { name: 'receiver.displayName' },
+    { name: 'sender.displayName', displayName: 'Sender' },
+    { name: 'receiver.displayName', displayName: 'Receiver' },
     { name: 'points' },
     { name: 'type' },
     { name: 'source' },
+    { name: 'audit.createdDate', type: 'date', displayName: 'Audit'},
   ];
 
   constructor() { }
