@@ -13,7 +13,7 @@
     </mat-card-title>
     <mat-card-content>
         <p *ngIf="formData.bonus">+{{ formData.bonus }}</p>
-        <p *ngIf="formData.receiver">@{{ formData.receiver }}</p>
+        <p *ngIf="formData.receiver">@{{ formData.receiver.displayName }}</p>
         <p *ngIf="formData.hashtag">#{{ formData.hashtag }}</p>
         <form (ngSubmit)="onCreatePost(newsfeedForm)" #newsfeedForm="ngForm" id="newsfeedNgForm">
             <mat-form-field class="message-input">

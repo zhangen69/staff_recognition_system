@@ -1,12 +1,7 @@
 import express from 'express';
-import Controller from '../standards/controller';
-import StandardRoutes from '../standards/routes';
 import { checkAuth } from '../middlewares/checkAuth';
 import PointTransaction from '../models/pointTransaction.model';
 import moment from 'moment';
-
-// const service = 'bonus-status';
-// const routes = new StandardRoutes(service, new Controller(service));
 
 const router = express.Router();
 
