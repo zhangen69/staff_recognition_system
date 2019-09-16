@@ -41,14 +41,19 @@ export class NewsfeedFormComponent implements OnInit {
     private dialog: MatDialog,
     private http: HttpClient,
     private authService: AuthService,
-    private toastr: ToastrService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
     this.authUser = JSON.parse(this.authService.getUserData());
-    this.http.get(this.apiUrl + '/service/bonus/profile').subscribe((data) => {
+    this.http.get(this.apiUrl + '/service/bonus/profile').subscribe(data => {
       this.bonusProfile = data;
     });
+    this.http
+      .get(this.apiUrl + '/service/bonus/leaderboard')
+      .subscribe(data => {
+        console.log(data);
+      });
   }
 
   openDialogWithoutRef(templateName) {
