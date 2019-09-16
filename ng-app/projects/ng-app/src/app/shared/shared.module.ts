@@ -91,7 +91,6 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     HttpClientModule,
     FlexLayoutModule,
     FileUploadModule,
-    ToastrModule,
     FilterOptionsPipe,
     TitleDisplayPipe,
     GetTotalPipe

@@ -17,10 +17,14 @@ import { MaterialModule } from '../material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
   declarations: [NewsfeedFormComponent, NewsfeedListComponent, NewsfeedDetailComponent, NewsfeedDashboardComponent, NewsfeedGameComponent, ProfileDashboardComponent, ProfileBadgesComponent, ProfileRewardsComponent, ProfileTeamsComponent, ProfileSentComponent, ProfileReceivedComponent, ProfileAchievementsComponent],
-  imports: [FormsModule, StaffRoutingModule, CommonModule,  FlexLayoutModule, SharedModule]
+  imports: [FormsModule, StaffRoutingModule, CommonModule,  FlexLayoutModule, SharedModule, ToastrModule.forRoot({
+    timeOut: 3000,
+    positionClass: 'toast-bottom-right'
+  })]
 })
 export class StaffModule { }
