@@ -5,12 +5,12 @@
 <div class="profile-group">
     <div class="profile-info">
         <div>Profile Image</div>
-        <div>December Points 20</div>
+        <div>December Points {{ bonusProfile.balancePoints }}</div>
         <div class="total-points">Total Points 2000</div>
     </div>
     <div class="points-info">
-        <div><span>Received</span> <span>50</span></div>
-        <div><span>Sent</span> <span>200</span></div>
+        <div><span>Received</span> <span>{{ bonusProfile.totalReceivedPoints }}</span></div>
+        <div><span>Sent</span> <span>{{ bonusProfile.totalSentPoints }}</span></div>
     </div>
 </div>
 
