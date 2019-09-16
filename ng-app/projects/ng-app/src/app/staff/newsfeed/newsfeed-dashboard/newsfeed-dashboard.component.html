@@ -1,8 +1,7 @@
 <div class="newsfeed">
     <div class="main-content">
-        <app-newsfeed-form (reload)="reload($event)"></app-newsfeed-form>
-    
-        <app-newsfeed-list></app-newsfeed-list>
+        <app-newsfeed-form [newsfeedList]="newfeedList"></app-newsfeed-form>
+        <app-newsfeed-list #newfeedList></app-newsfeed-list>
     </div>
     
     <div class="sidebar">

@@ -1,7 +1,8 @@
 import { environment } from './../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild, TemplateRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef, Output, EventEmitter, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { NewsfeedListComponent } from '../newsfeed-list/newsfeed-list.component';
 
 @Component({
   selector: 'app-newsfeed-form',
@@ -13,8 +14,7 @@ export class NewsfeedFormComponent implements OnInit {
   @ViewChild('tag_person_dialog', { static: true }) tag_person_dialog: TemplateRef<any>;
   @ViewChild('hashtag_dialog', { static: true }) hashtag_dialog: TemplateRef<any>;
 
-  @Output()
-  reload = new EventEmitter();
+  @Input() newsfeedList: NewsfeedListComponent;
 
   formData: any = {};
   dialogForm: any = {};
@@ -46,7 +46,7 @@ export class NewsfeedFormComponent implements OnInit {
 
       };
       this.http.post(this.apiUrl + '/service/pointTransaction', transactionData).subscribe(() => {
-        this.reload.emit();
+        this.newsfeedList.onLoadPage();
       });
     });
   }
