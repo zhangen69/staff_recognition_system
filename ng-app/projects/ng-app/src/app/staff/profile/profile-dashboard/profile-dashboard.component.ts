@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileDashboardComponent implements OnInit {
   profile: any;
+  bonusProfile: any;
   apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
@@ -16,6 +17,9 @@ export class ProfileDashboardComponent implements OnInit {
   ngOnInit() {
     this.http.get(this.apiUrl + '/service/user/fetchProfile').subscribe(({ data }: any) => {
       this.profile = data;
+      this.http.get(this.apiUrl + '/service/bonus/profile').subscribe((data) => {
+        this.bonusProfile = data;
+      });
     });
   }
 
