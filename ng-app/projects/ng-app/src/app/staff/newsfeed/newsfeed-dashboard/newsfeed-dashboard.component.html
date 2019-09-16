@@ -7,7 +7,19 @@
     <div class="sidebar">
         <p>Game</p>
         <p>Top Bonus Receivers</p>
+        <ol class="bonus-leaderboard">
+            <li *ngFor="let item of bonusLeaderboard?.topBonusReceivers">
+                <span>{{ item.receiver.displayName }}</span>
+                <span>{{ item.count }}</span>
+            </li>
+        </ol>
         <p>Top Bonus Senders</p>
+        <ol class="bonus-leaderboard">
+            <li *ngFor="let item of bonusLeaderboard?.topBonusSenders">
+                <span>{{ item.sender.displayName }}</span>
+                <span>{{ item.count }}</span>
+            </li>
+        </ol>
         <p>Trendings</p>
         <p>Leaderboard</p>
     </div>

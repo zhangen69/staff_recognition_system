@@ -46,14 +46,9 @@ export class NewsfeedFormComponent implements OnInit {
 
   ngOnInit() {
     this.authUser = JSON.parse(this.authService.getUserData());
-    this.http.get(this.apiUrl + '/service/bonus/profile').subscribe(data => {
-      this.bonusProfile = data;
-    });
     this.http
-      .get(this.apiUrl + '/service/bonus/leaderboard')
-      .subscribe(data => {
-        console.log(data);
-      });
+      .get(this.apiUrl + '/service/bonus/profile')
+      .subscribe(data => (this.bonusProfile = data));
   }
 
   openDialogWithoutRef(templateName) {
