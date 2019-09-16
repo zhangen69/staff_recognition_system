@@ -16,6 +16,8 @@ import { LoginComponent } from '../shared/auth/login/login.component';
 import { ForgotPasswordComponent } from '../shared/auth/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from '../shared/auth/reset-password/reset-password.component';
 import { AuthGuard } from '../shared/auth/auth.guard';
+import { AwardsSettingListComponent } from './awards/awards-setting-list/awards-setting-list.component';
+import { AwardsSettingFormComponent } from './awards/awards-setting-form/awards-setting-form.component';
 
 const routes: Routes = [
   {
@@ -28,6 +30,23 @@ const routes: Routes = [
       {
         path: 'log',
         component: AwardsLogComponent
+      },
+      {
+        path: 'setting',
+        children: [
+          {
+            path: '',
+            component: AwardsSettingListComponent
+          },
+          {
+            path: 'add',
+            component: AwardsSettingFormComponent
+          },
+          {
+            path: 'edit/:id',
+            component: AwardsSettingFormComponent
+          }
+        ]
       },
       {
         path: 'claimable',

@@ -35,6 +35,12 @@ export class AppComponent implements OnInit, OnDestroy {
               { url: '/admin/awards/manual', name: 'Manage Manual' },
               { url: '/admin/awards/log', name: 'Awards Log' },
           ]
+      },
+      {
+          name: 'Settings',
+          children: [
+              { url: '/admin/awards/setting', name: 'Awards' },
+          ]
       }
   ];
 

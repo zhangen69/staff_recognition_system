@@ -11,11 +11,12 @@ import { ClaimableListComponent } from './awards/claimable-list/claimable-list.c
 import { ClaimableDetailComponent } from './awards/claimable-detail/claimable-detail.component';
 import { ManualDetailComponent } from './awards/manual-detail/manual-detail.component';
 import { AwardsLogComponent } from './awards/awards-log/awards-log.component';
-import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from '../shared/shared.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../shared/auth/auth.interceptor';
+import { AwardsSettingFormComponent } from './awards/awards-setting-form/awards-setting-form.component';
+import { AwardsSettingListComponent } from './awards/awards-setting-list/awards-setting-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { AuthInterceptor } from '../shared/auth/auth.interceptor';
     ClaimableDetailComponent,
     ManualDetailComponent,
     AwardsLogComponent,
-    AwardsDashboardComponent
+    AwardsDashboardComponent,
+    AwardsSettingFormComponent,
+    AwardsSettingListComponent,
   ],
   imports: [AdminRoutingModule, FlexLayoutModule, SharedModule],
   providers: [
