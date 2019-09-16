@@ -12,4 +12,8 @@ export class NewsfeedDashboardComponent implements OnInit {
   ngOnInit() {
   }
 
+  reload() {
+    
+  }
+
 }

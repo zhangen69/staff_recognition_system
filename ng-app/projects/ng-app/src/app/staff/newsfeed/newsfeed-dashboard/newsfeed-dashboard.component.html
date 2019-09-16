@@ -1,6 +1,6 @@
 <div class="newsfeed">
     <div class="main-content">
-        <app-newsfeed-form></app-newsfeed-form>
+        <app-newsfeed-form (reload)="reload($event)"></app-newsfeed-form>
     
         <app-newsfeed-list></app-newsfeed-list>
     </div>
