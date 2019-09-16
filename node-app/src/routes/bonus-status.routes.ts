@@ -81,15 +81,13 @@ const groupByProp = (prop) => {
         count: true,
       },
     },
-  ])
-    .sort({ count: -1 })
-    .limit(5)
-    .then((docs) => {
-      if (prop === 'sender') {
-        console.log(docs);
-      }
-      return docs;
-    });
+    { $sort: { count: -1 } },
+    {
+      $limit: 5,
+    },
+  ]).then((docs) => {
+    return docs;
+  });
 };
 
 export default router;

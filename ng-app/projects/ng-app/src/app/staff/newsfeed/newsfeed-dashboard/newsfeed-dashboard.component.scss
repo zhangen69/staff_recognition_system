@@ -18,8 +18,10 @@
         border: 1px solid #ff0;
         width: 300px;
 
-        .bonus-leaderboard {
+        .bonus-leaderboard,
+        .hashtag-trending {
             margin: 0;
+            list-style: none;
 
             li {
                 display: flex;
@@ -29,6 +31,10 @@
             li > span:first-of-type {
                 margin-right: auto;
             }
+        }
+
+        .hashtag-trending > li:before {
+            content: '#';
         }
     }
 }

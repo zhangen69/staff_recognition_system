@@ -21,6 +21,12 @@
             </li>
         </ol>
         <p>Trendings</p>
+        <ol class="hashtag-trending">
+            <li *ngFor="let hashtag of hashtags">
+                <span>{{ hashtag.name }}</span>
+                <span>{{ hashtag.count }}</span>
+            </li>
+        </ol>
         <p>Leaderboard</p>
     </div>
 </div>

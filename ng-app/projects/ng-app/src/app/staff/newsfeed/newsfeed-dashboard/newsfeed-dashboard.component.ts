@@ -10,6 +10,7 @@ import { environment } from 'projects/ng-app/src/environments/environment';
 export class NewsfeedDashboardComponent implements OnInit {
   apiUrl = environment.apiUrl;
   bonusLeaderboard: any;
+  hashtags: any;
 
   constructor(private http: HttpClient) { }
 
@@ -17,6 +18,9 @@ export class NewsfeedDashboardComponent implements OnInit {
     this.http
       .get(this.apiUrl + '/service/bonus/leaderboard')
       .subscribe(data => (this.bonusLeaderboard = data));
+    this.http
+      .get(this.apiUrl + '/service/hashtag/trending')
+      .subscribe(data => (this.hashtags = data));
   }
 
 }

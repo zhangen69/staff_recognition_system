@@ -14,6 +14,7 @@ import userRoutes from '../routes/user.routes';
 // import VueAppRoutes from '../routes/vue-app.routes';
 import StandardRoutes from '../routes/standard.routes';
 import BonusRoutes from '../routes/bonus-status.routes';
+import HashtagRoutes from '../routes/hashtag-status.routes';
 
 const router = express.Router();
 
@@ -28,7 +29,7 @@ router.use(uploaderRoutes);
 
 // apply service routes
 router.use('/service/user', userRoutes);
-router.use('/service', BonusRoutes);
+router.use('/service', BonusRoutes, HashtagRoutes);
 router.use(StandardRoutes);
 
 // apply standard routes
