@@ -1,5 +1,6 @@
+import { environment } from './../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -12,8 +13,12 @@ export class NewsfeedFormComponent implements OnInit {
   @ViewChild('tag_person_dialog', { static: true }) tag_person_dialog: TemplateRef<any>;
   @ViewChild('hashtag_dialog', { static: true }) hashtag_dialog: TemplateRef<any>;
 
+  @Output()
+  reload = new EventEmitter();
+
   formData: any = {};
   dialogForm: any = {};
+  apiUrl = environment.apiUrl;
 
   constructor(private dialog: MatDialog, private http: HttpClient) { }
 
@@ -34,9 +39,15 @@ export class NewsfeedFormComponent implements OnInit {
   }
 
   onCreatePost() {
-    this.http.post('http://localhost:3000/service/post', this.formData).subscribe(({ data }: any) => {
-      console.log(data);
-      debugger;
+    this.http.post(this.apiUrl + '/service/post', this.formData).subscribe(({ data }: any) => {
+      this.formData = {};
+      this.dialogForm = {};
+      const transactionData = {
+
+      };
+      this.http.post(this.apiUrl + '/service/pointTransaction', transactionData).subscribe(() => {
+        this.reload.emit();
+      });
     });
   }
 
