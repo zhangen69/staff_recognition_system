@@ -1,5 +1,6 @@
 <mat-card>
     <mat-card-title>
+        <p class="bonus-balance" ng-if="bonusProfile">You have <span>{{ bonusProfile?.balancePoints }} points</span> to give away</p>
         <button mat-icon-button (click)="openDialogWithoutRef('add_bonus_dialog')">
             <mat-icon>add</mat-icon>
         </button>

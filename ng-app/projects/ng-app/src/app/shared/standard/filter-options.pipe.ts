@@ -4,8 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'filterOptions'
 })
 export class FilterOptionsPipe implements PipeTransform {
-
-  transform(options: any[], value: any): any {
+  transform(options: any[], value: any, prop: string): any {
     if (!options) {
       return;
     }
@@ -14,7 +13,17 @@ export class FilterOptionsPipe implements PipeTransform {
       return options;
     }
 
-    return options.filter(option => option.name.toLowerCase().includes(value.toLowerCase()));
-  }
+    if (typeof value === 'object') {
+      return options.filter(option => {
+        const optionValue = prop ? option[prop] : option.name;
+        const enteredValue = prop ? value[prop] : value;
+        return optionValue.toLowerCase().includes(enteredValue.toLowerCase());
+      });
+    }
 
+    return options.filter(option => {
+      const optionValue = prop ? option[prop] : option.name;
+      return optionValue.toLowerCase().includes(value.toLowerCase());
+    });
+  }
 }

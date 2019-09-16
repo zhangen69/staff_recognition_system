@@ -13,6 +13,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NewsfeedListComponent } from '../newsfeed-list/newsfeed-list.component';
 import { AuthService } from '../../../shared/auth/auth.service';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-newsfeed-form',
@@ -34,15 +35,20 @@ export class NewsfeedFormComponent implements OnInit {
   dialogForm: any = {};
   apiUrl = environment.apiUrl;
   authUser: any;
+  bonusProfile: any;
 
   constructor(
     private dialog: MatDialog,
     private http: HttpClient,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastr: ToastrService,
   ) {}
 
   ngOnInit() {
     this.authUser = JSON.parse(this.authService.getUserData());
+    this.http.get(this.apiUrl + '/service/bonus/profile').subscribe((data) => {
+      this.bonusProfile = data;
+    });
   }
 
   openDialogWithoutRef(templateName) {
@@ -59,6 +65,10 @@ export class NewsfeedFormComponent implements OnInit {
   }
 
   onCreatePost(form: NgForm) {
+    if (this.bonusProfile.balancePoints < this.formData.bonus) {
+      this.toastr.warning('Your balance bonus is not enough!');
+      return;
+    }
     this.http
       .post(this.apiUrl + '/service/post', this.formData)
       .subscribe(({ data }: any) => {

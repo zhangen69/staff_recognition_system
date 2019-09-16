@@ -4,6 +4,14 @@ button {
 }
 
 mat-card-title {
+    .bonus-balance {
+        font-size: 14px;
+
+        span {
+            font-weight: bold;
+        }
+    }
+
     button {
         border-radius: 10px;
 
