@@ -8,6 +8,7 @@ const PrizeSchema = new mongoose.Schema({
 
 const schema = new mongoose.Schema({
     prizes: { type: [PrizeSchema], default: [] },
+    startFrom: { type: Date, default: Date.now },
     expiredDate: { type: Date, required: true },
 });
 

@@ -11,6 +11,7 @@ export class RewardFormComponent implements OnInit {
   // callback = true;
   includes = [];
   fields: IStandardFormField[] = [
+    { name: 'startFrom', type: 'date', required: true },
     { name: 'expiredDate', type: 'date', required: true },
     { name: 'prizes', type: 'table', fields: [
       { name: 'name', type: 'string' },

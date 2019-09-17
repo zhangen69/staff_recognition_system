@@ -12,6 +12,7 @@ export class RewardListComponent implements OnInit {
   baseUrl = '/admin/rewards';
   includes = ['receiver'];
   columns: IStandardColumn[] = [
+    { name: 'startFrom', type: 'date', dateFormat: 'dd MMMM yyyy' },
     { name: 'expiredDate', type: 'date', dateFormat: 'dd MMMM yyyy' },
     { name: 'prizes', format: 'template', template: item => {
       return item.prizes.map((prize) => `${prize.name}(${prize.quantity})`).join(', ');
