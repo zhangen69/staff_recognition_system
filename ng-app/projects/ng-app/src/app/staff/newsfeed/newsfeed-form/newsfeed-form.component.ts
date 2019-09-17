@@ -76,29 +76,39 @@ export class NewsfeedFormComponent implements OnInit {
 
   onCreatePost(form: NgForm) {
     if (this.bonusProfile.balancePoints < this.formData.bonus) {
-      this.toastr.warning('Your balance bonus is not enough!');
+      alert('Your balance bonus is not enough!');
+      return;
+    } else if (!this.formData.bonus || !this.formData.receiver || !this.formData.hashtags) {
+      alert('Please fill-in the information of bonus, receiver and hashtags');
       return;
     }
-    this.http
-      .post(this.apiUrl + '/service/post', this.formData)
-      .subscribe(({ data }: any) => {
-        this.formData = {};
-        this.dialogForm = {};
-        form.resetForm();
-        const transactionData = {
-          sender: this.authUser._id,
-          receiver: data.receiver,
-          points: data.bonus,
-          type: 'Transfer',
-          source: 'Post',
-          sourceId: data._id
-        };
 
+    this.http.get(this.apiUrl + '/service/bonus/checkGiveValidation/' + this.formData.receiver._id).subscribe((res: any) => {
+      if (!res.valid) {
+        alert(res.message);
+      } else {
         this.http
-          .post(this.apiUrl + '/service/pointTransaction', transactionData)
-          .subscribe(() => {
-            this.newsfeedList.onLoadPage();
-          });
-      });
+        .post(this.apiUrl + '/service/post', this.formData)
+        .subscribe(({ data }: any) => {
+          this.formData = {};
+          this.dialogForm = {};
+          form.resetForm();
+          const transactionData = {
+            sender: this.authUser._id,
+            receiver: data.receiver,
+            points: data.bonus,
+            type: 'Transfer',
+            source: 'Post',
+            sourceId: data._id
+          };
+
+          this.http
+            .post(this.apiUrl + '/service/pointTransaction', transactionData)
+            .subscribe(() => {
+              this.newsfeedList.onLoadPage();
+            });
+        });
+      }
+    });
   }
 }
