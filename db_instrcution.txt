@@ -7,3 +7,6 @@
 > mongorestore --db srs_db --dir "C:\Users\User\Desktop\_Projects\staff_recognition_system\srs_db"
 
 > mongorestore --db srs_db --dir "D:\Projects\staff_recognition_system\srs_db"
+
+# Export local mongodb data (update files)
+> mongodump --db srs_db -o "D:\Projects\staff_recognition_system"
