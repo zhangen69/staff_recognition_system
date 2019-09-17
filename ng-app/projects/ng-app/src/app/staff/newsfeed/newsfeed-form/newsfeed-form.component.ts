@@ -32,7 +32,11 @@ export class NewsfeedFormComponent implements OnInit {
   @Input() newsfeedList: NewsfeedListComponent;
 
   formData: any = {};
-  dialogForm: any = {};
+  dialogForm: any = {
+    hashtags: [],
+    receiver: null,
+    bonus: 0
+  };
   apiUrl = environment.apiUrl;
   authUser: any;
   bonusProfile: any;
@@ -59,7 +63,9 @@ export class NewsfeedFormComponent implements OnInit {
     if (prop !== 'hashtag') {
       this.formData[prop] = this.dialogForm[prop];
     } else {
-      this.formData.hashtags = this.dialogForm.hashtags.map((hashtag) => hashtag.name);
+      this.formData.hashtags = this.dialogForm.hashtags.map(
+        hashtag => hashtag.name
+      );
     }
     this.dialog.closeAll();
   }

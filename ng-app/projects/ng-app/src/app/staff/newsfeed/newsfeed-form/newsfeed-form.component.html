@@ -14,7 +14,7 @@
     <mat-card-content>
         <p *ngIf="formData.bonus">+{{ formData.bonus }}</p>
         <p *ngIf="formData.receiver">@{{ formData.receiver.displayName }}</p>
-        <p *ngIf="formData.hashtag">#{{ formData.hashtag }}</p>
+        <p *ngIf="formData.hashtag">#{{ formData.hashtags | json }}</p>
         <form (ngSubmit)="onCreatePost(newsfeedForm)" #newsfeedForm="ngForm" id="newsfeedNgForm">
             <mat-form-field class="message-input">
                 <textarea matInput placeholder="Enter message..." rows="4" [(ngModel)]="formData.message" name="message" #message="ngModel"
@@ -61,7 +61,7 @@
 
 <ng-template #hashtag_dialog>
     <h2 matDialogTitle>Give the staff some hashtags</h2>
-    <button mat-raised-button (click)="formData.hashtags.push({})">New Hashtag</button>
+    <button mat-raised-button (click)="dialogForm.hashtags.push({})">New Hashtag</button>
     <mat-dialog-content>
         <mat-form-field *ngFor="let hashtag of dialogForm.hashtags">
             <mat-label>Hashtag</mat-label>
