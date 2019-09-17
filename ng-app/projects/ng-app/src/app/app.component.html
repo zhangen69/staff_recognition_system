@@ -20,7 +20,7 @@
         <mat-nav-list>
           <ng-container>
             <div class="sidenav-list-item" *ngFor="let route of routes">
-                <a mat-list-item [routerLink]="route.url" routerLinkActive="mat-primary" (click)="route.opened = !route.opened">
+                <a mat-list-item [routerLink]="route.url" routerLinkActive="mat-primary" (click)="route.opened = !route.opened" *ngIf="route?.isAdmin && authUser?.isAdmin">
                   {{ route.name }}
                   <span fxFlexOffset="auto" *ngIf="route.children && route.children.length > 0">
                     <mat-icon *ngIf="!!route.opened">keyboard_arrow_down</mat-icon>

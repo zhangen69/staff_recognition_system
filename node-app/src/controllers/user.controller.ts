@@ -63,6 +63,7 @@ class Controller {
                 username: user.username,
                 displayName: user.displayName,
                 email: user.email,
+                isAdmin: user.isAdmin,
             },
         };
 

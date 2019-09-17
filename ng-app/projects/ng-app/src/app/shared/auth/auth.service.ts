@@ -36,12 +36,12 @@ export class AuthService {
       if (this.token) {
         const expiresIn = res.expiresIn;
         this.setAuthTimer(expiresIn);
-        this.authStatusListerner.next(true);
         const now = new Date();
         const expiration = new Date(now.getTime() + (expiresIn));
         this.saveAuthData(res.user, this.token, expiration);
         this.toastr.success(res.message);
         this.router.navigate(['/']);
+        this.authStatusListerner.next(true);
       }
     }, (res: any) => {
       this.pageLoaderService.toggle(false);
