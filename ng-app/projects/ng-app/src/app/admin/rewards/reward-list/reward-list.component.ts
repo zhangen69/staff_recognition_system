@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IStandardColumn } from '../../../shared/standard/standard-form-field.interface';
 
 @Component({
   selector: 'app-reward-list',
@@ -6,6 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reward-list.component.scss']
 })
 export class RewardListComponent implements OnInit {
+  // showDefaultBtn = false;
+  addNewItemLink = '/admin/rewards/add';
+  baseUrl = '/admin/rewards';
+  includes = ['receiver'];
+  columns: IStandardColumn[] = [
+    { name: 'expiredDate', type: 'date' },
+    { name: 'prizes', format: 'template', template: item => {
+      return item.prizes.map((prize) => prize.name).join(', ');
+    } },
+  ];
+  filterList = [];
+  actions = [];
 
   constructor() { }
 

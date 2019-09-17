@@ -50,7 +50,7 @@ export class StandardService {
     }
 
     update(formData) {
-        this.http.put(this.apiUrl, formData).subscribe(
+        this.http.post(this.apiUrl, formData).subscribe(
             (res: any) => {
                 this.toastr.success(res.message);
                 this.router.navigate([`/${this.domain}/list`]);
@@ -60,13 +60,7 @@ export class StandardService {
     }
 
     submit(formData, url = null): Observable<any> {
-        let mode = 'post';
-
-        if (formData._id) {
-            mode = 'put';
-        }
-
-        return this.http[mode](url || this.apiUrl, formData);
+        return this.http.post(url || this.apiUrl, formData);
     }
 
     fetch(id, formData = null, includes = []) {

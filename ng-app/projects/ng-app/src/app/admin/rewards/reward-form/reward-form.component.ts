@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IStandardFormField } from '../../../shared/standard/standard-form-field.interface';
 
 @Component({
   selector: 'app-reward-form',
@@ -6,6 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reward-form.component.scss']
 })
 export class RewardFormComponent implements OnInit {
+  authUser: any;
+  // callback = true;
+  includes = [];
+  fields: IStandardFormField[] = [
+    { name: 'expiredDate', type: 'date', required: true },
+    { name: 'prizes', type: 'table', fields: [
+      { name: 'name', type: 'string' },
+      { name: 'quantity', type: 'number' },
+    ] },
+  ];
 
   constructor() { }
 

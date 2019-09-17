@@ -20,6 +20,7 @@ interface IStandardColumn {
   displayName?: string;
   format?: string;
   default?: any;
+  template?: any;
 }
 
 export { IStandardFormField, IStandardColumn };
