@@ -35,7 +35,7 @@ export default class QueryModel implements IQueryModel {
         const conditions: any = {};
         const options = { skip: (this.currentPage * this.pageSize), limit: this.pageSize, sort: '', sortDirection: 0 };
 
-        if (!!this.type && !!this.searchText) {
+        if (!!this.type && (!!this.searchText || (!!this.min && !!this.max))) {
             this._getCondition(conditions, this);
         }
 
@@ -71,7 +71,7 @@ export default class QueryModel implements IQueryModel {
                 break;
             case 'number':
                 const query: IMongooseQueryModel = {};
-
+                console.log('options', options);
                 if (options.min != null) {
                     query.$gte = options.min;
                 }

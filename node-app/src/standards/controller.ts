@@ -89,7 +89,7 @@ export default class StandardController {
   public fetchAll(queryModel) {
     return new Promise((resolve, reject) => {
       const { conditions, options } = new QueryModel(queryModel).getQuery();
-
+      console.log('queryModel', queryModel);
       const tempConditions = { name: /e/i };
       const sortQuery = (options.sortDirection === 0 ? '' : '-') + options.sort;
       this.model.countDocuments(conditions).then((count) => {

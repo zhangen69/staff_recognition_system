@@ -14,7 +14,7 @@ export class ManualListComponent implements OnInit {
   columns: IStandardColumn[] = [
     { name: 'role' },
     { name: 'receiver.displayName', displayName: 'Receiver' },
-    { name: 'bonus' },
+    { name: 'bonus', type: 'number' },
     { name: 'message' },
   ];
   filterList = [];

@@ -83,7 +83,7 @@ export class StandardListComponent implements OnInit, AfterViewInit {
             if (!this.filterList) {
                 this.filterList = [];
             }
-            this.filterList.push({ type: column.name, displayName: column.displayName, queryType: 'string' });
+            this.filterList.push({ type: column.name, displayName: column.displayName, queryType: (column.type || 'string') });
         });
 
         this.service.getRefreshListerner().subscribe(() => {
