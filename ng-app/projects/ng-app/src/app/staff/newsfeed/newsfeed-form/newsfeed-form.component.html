@@ -38,7 +38,8 @@
 <!-- <pre>{{ formData | json }}</pre> -->
 
 <ng-template #add_bonus_dialog>
-    <h2 matDialogTitle>Such dialog very wow!</h2>
+    <h2 matDialogTitle>Give bonus</h2>
+    <i>You're only allow give the points within 5 to 10</i>
     <mat-dialog-content>
         <mat-form-field>
             <input matInput type="number" [(ngModel)]="dialogForm.bonus" placeholder="Enter bonus amount...">
@@ -51,7 +52,7 @@
 </ng-template>
 
 <ng-template #tag_person_dialog>
-    <h2 matDialogTitle>Such dialog very wow!</h2>
+    <h2 matDialogTitle>Tag a staff</h2>
     <mat-dialog-content>
         <app-standard-form-field form="form"
             [field]="{ type: 'ref', name: 'receiver', ref: 'user', displayName: 'Receiver', refName: 'displayName' }"

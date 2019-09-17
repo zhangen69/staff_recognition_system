@@ -56,17 +56,28 @@ export class NewsfeedFormComponent implements OnInit {
   }
 
   openDialogWithoutRef(templateName) {
-    this.dialog.open(this[templateName]);
+    this.dialog.open(this[templateName], { disableClose: true });
   }
 
   closeDialog(prop) {
+    if (prop === 'bonus') {
+      if (this.dialogForm[prop] < 5) {
+        alert('Bonus cannot lower than 5 points');
+        return;
+      } else if (this.dialogForm[prop] > 10) {
+        alert('Bonus cannot greater than 10 points');
+        return;
+      }
+    }
+
     if (prop !== 'hashtag') {
       this.formData[prop] = this.dialogForm[prop];
     } else {
       this.formData.hashtags = this.dialogForm.hashtags.map(
         hashtag => hashtag.name
       );
-    }
+    } 
+    
     this.dialog.closeAll();
   }
 
