@@ -10,7 +10,7 @@ export class StaffListComponent implements OnInit {
   addNewItemLink = '/admin/staff/add';
   // showDefaultBtn = false;
   columns = [
-    { name: 'displayName', format: 'link', link: '/staff/view' },
+    { name: 'displayName' },
     { name: 'email' },
     { name: 'phoneNumber' },
   ];
