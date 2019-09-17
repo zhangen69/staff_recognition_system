@@ -17,6 +17,9 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../shared/auth/auth.interceptor';
 import { AwardsSettingFormComponent } from './awards/awards-setting-form/awards-setting-form.component';
 import { AwardsSettingListComponent } from './awards/awards-setting-list/awards-setting-list.component';
+import { RewardFormComponent } from './rewards/reward-form/reward-form.component';
+import { RewardListComponent } from './rewards/reward-list/reward-list.component';
+import { RewardLogComponent } from './rewards/reward-log/reward-log.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import { AwardsSettingListComponent } from './awards/awards-setting-list/awards-
     AwardsDashboardComponent,
     AwardsSettingFormComponent,
     AwardsSettingListComponent,
+    RewardFormComponent,
+    RewardListComponent,
+    RewardLogComponent,
   ],
   imports: [AdminRoutingModule, FlexLayoutModule, SharedModule],
   providers: [

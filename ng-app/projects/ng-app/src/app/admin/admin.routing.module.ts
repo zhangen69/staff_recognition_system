@@ -1,3 +1,5 @@
+import { RewardFormComponent } from './rewards/reward-form/reward-form.component';
+import { RewardListComponent } from './rewards/reward-list/reward-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ManualDetailComponent } from './awards/manual-detail/manual-detail.component';
 import { ManualFormComponent } from './awards/manual-form/manual-form.component';
@@ -18,8 +20,30 @@ import { ResetPasswordComponent } from '../shared/auth/reset-password/reset-pass
 import { AuthGuard } from '../shared/auth/auth.guard';
 import { AwardsSettingListComponent } from './awards/awards-setting-list/awards-setting-list.component';
 import { AwardsSettingFormComponent } from './awards/awards-setting-form/awards-setting-form.component';
+import { RewardLogComponent } from './rewards/reward-log/reward-log.component';
 
 const routes: Routes = [
+  {
+    path: 'rewards',
+    children: [
+      {
+        path: '',
+        component: RewardListComponent,
+      },
+      {
+        path: 'add',
+        component: RewardFormComponent,
+      },
+      {
+        path: 'edit/:id',
+        component: RewardFormComponent,
+      },
+      {
+        path: 'log',
+        component: RewardLogComponent,
+      },
+    ],
+  },
   {
     path: 'awards',
     children: [

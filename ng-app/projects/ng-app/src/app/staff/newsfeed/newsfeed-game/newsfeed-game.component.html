@@ -1,1 +1,7 @@
-<p>newsfeed-game works!</p>
+<div class="game">
+    <div class="box" *ngFor="let prize of prizes" [ngClass]="{'active': running === prize}">{{ prize.name }}</div>
+</div>
+<div class="action-group">
+    <button mat-raised-button (click)="start()" color="primary" [disabled]="gameEnd || gameStart">Start</button>
+    <button mat-raised-button (click)="exit()" [disabled]="gameStart">Close</button>
+</div>

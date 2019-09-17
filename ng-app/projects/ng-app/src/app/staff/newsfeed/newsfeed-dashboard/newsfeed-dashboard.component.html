@@ -6,6 +6,8 @@
     
     <div class="sidebar">
         <p>Game</p>
+        <button mat-raised-button color="primary" (click)="playGame()">Play Game</button>
+        <i>Game will cost 250 points</i>
         <p>Top Bonus Receivers</p>
         <ol class="bonus-leaderboard">
             <li *ngFor="let item of bonusLeaderboard?.topBonusReceivers">

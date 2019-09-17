@@ -19,7 +19,7 @@ interface IStandardColumn {
   type?: string;
   displayName?: string;
   format?: string;
-
+  default?: any;
 }
 
 export { IStandardFormField, IStandardColumn };

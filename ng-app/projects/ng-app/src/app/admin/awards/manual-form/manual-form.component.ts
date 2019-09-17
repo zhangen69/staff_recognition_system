@@ -37,7 +37,7 @@ export class ManualFormComponent implements OnInit {
       this.pageLoaderService.toggle(false);
       // create a point transaction record
       const pointTransactionModel = {
-        sender: this.authUser._id,
+        // sender: this.authUser._id,
         receiver: data.receiver,
         points: data.bonus,
         type: 'Award',

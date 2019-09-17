@@ -32,14 +32,17 @@ export class AppComponent implements OnInit, OnDestroy {
       {
           name: 'Awards',
           children: [
-              { url: '/admin/awards/manual', name: 'Manage Manual' },
-              { url: '/admin/awards/log', name: 'Awards Log' },
+              { url: '/admin/awards/manual', name: 'Manage' },
+              { url: '/admin/awards/manual/add', name: 'New' },
+              { url: '/admin/awards/log', name: 'Log' },
           ]
       },
       {
-          name: 'Settings',
+          name: 'Rewards',
           children: [
-              { url: '/admin/awards/setting', name: 'Awards' },
+              { url: '/admin/rewards/', name: 'Manage' },
+              { url: '/admin/rewards/add', name: 'New' },
+              { url: '/admin/rewards/log', name: 'Log' },
           ]
       }
   ];

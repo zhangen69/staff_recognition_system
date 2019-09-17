@@ -20,7 +20,7 @@ router.get('/bonus/profile', checkAuth, (req, res, next) => {
     docs.forEach((doc) => {
       const docDate = moment(doc['audit']['createdDate']);
       const isSameMonth = docDate.isSame(new Date(), 'month');
-      if (doc['sender'].toString() === auth.user._id) {
+      if (doc['sender'] && doc['sender'].toString() === auth.user._id) {
         totalSentPoints += doc['points'];
         if (isSameMonth) {
           balancePoints -= doc['points'];

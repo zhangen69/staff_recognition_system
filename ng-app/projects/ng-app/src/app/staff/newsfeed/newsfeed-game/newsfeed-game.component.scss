@@ -1,0 +1,28 @@
+.game {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #ccc;
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+
+.box.active {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.action-group {
+    display: flex;
+    justify-content: center;
+}

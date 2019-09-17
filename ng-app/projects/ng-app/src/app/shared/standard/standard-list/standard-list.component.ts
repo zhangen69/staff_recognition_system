@@ -175,6 +175,10 @@ export class StandardListComponent implements OnInit, AfterViewInit {
                 break;
         }
 
+        if (!value) {
+            value = column.default;
+        }
+
         return value;
     }
 
