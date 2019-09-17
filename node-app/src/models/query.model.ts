@@ -35,7 +35,7 @@ export default class QueryModel implements IQueryModel {
         const conditions: any = {};
         const options = { skip: (this.currentPage * this.pageSize), limit: this.pageSize, sort: '', sortDirection: 0 };
 
-        if (!!this.type && (!!this.searchText || (!!this.min && !!this.max))) {
+        if (!!this.type && (!!this.searchText || !!this.min || !!this.max)) {
             this._getCondition(conditions, this);
         }
 
@@ -53,7 +53,7 @@ export default class QueryModel implements IQueryModel {
             options.sortDirection = this.sortDirection === 'ASC' ? 0 : -1;
         }
 
-        return {conditions, options};
+        return { conditions, options };
     }
 
     private _isEmpty(obj) {
