@@ -12,7 +12,7 @@ export class AwardsLogComponent implements OnInit {
   includes: string[] = ['sender', 'receiver'];
   columns: IStandardColumn[] = [
     { name: 'sender.displayName', displayName: 'Sender', default: 'System' },
-    { name: 'receiver.displayName', displayName: 'Receiver' },
+    { name: 'receiver.displayName', displayName: 'Receiver', default: 'System' },
     { name: 'points' },
     { name: 'type' },
     { name: 'source' },
