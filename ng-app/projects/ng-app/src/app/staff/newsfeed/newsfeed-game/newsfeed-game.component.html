@@ -1,7 +1,14 @@
 <div class="game">
     <div class="box" *ngFor="let prize of prizes" [ngClass]="{'active': running === prize}">{{ prize.name }}</div>
 </div>
-<div class="action-group">
+<div class="action-group" *ngIf="prizes?.length > 0; else loading">
     <button mat-raised-button (click)="start()" color="primary" [disabled]="gameEnd || gameStart">Start</button>
     <button mat-raised-button (click)="exit()" [disabled]="gameStart">Close</button>
 </div>
+
+<ng-template #loading>
+    <mat-spinner></mat-spinner>
+</ng-template>
+
+
+<!-- <pre>{{ prizes | json }}</pre> -->

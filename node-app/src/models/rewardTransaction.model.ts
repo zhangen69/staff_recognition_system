@@ -5,7 +5,8 @@ const schema = new mongoose.Schema({
     winner: { type: mongoose.Types.ObjectId, ref: 'User', required: true },
     redeemed: { type: Boolean, default: false },
     redeemedDate: { type: Date, default: null },
-    reward: { type: mongoose.Types.ObjectId, required: true },
+    rewardId: { type: mongoose.Types.ObjectId, required: true },
+    rewardName: { type: String, required: true },
 });
 
 schema.add(auditable);

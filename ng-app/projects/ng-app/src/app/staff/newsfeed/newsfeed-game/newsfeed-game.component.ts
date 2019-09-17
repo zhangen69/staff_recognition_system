@@ -14,25 +14,32 @@ import { AuthService } from '../../../shared/auth/auth.service';
 export class NewsfeedGameComponent implements OnInit {
   apiUrl = environment.apiUrl;
   authUser: any;
-  prizes = [
-    { name: 'iPhone 10' },
-    { name: 'Asus Zenfore 6' },
-    { name: 'Kinsahi RM 20 Voucher' }
-  ];
+  prizes: any[];
   running;
   gameStart = false;
   gameEnd = false;
+  bonusProfile: any;
 
   constructor(public dialogRef: MatDialogRef<NewsfeedGameComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, private http: HttpClient, private authService: AuthService) { }
 
   ngOnInit() {
+    this.http
+      .get(this.apiUrl + '/service/bonus/profile')
+      .subscribe(data => (this.bonusProfile = data));
     this.authUser = JSON.parse(this.authService.getUserData());
+    this.http.get(this.apiUrl + '/service/game/getRewards').subscribe((data: any) => {
+      this.prizes = data.prizes;
+    });
   }
 
   start() {
     const gameConfirmation = confirm('Play this game will cost 250 points, are you sure to play?');
     if (gameConfirmation) {
+      if (!(this.bonusProfile.balancePoints >= 250)) {
+        alert('You balance points is not enough to play the game.');
+        return;
+      }
       const pointTransactionModel = {
         sender: this.authUser._id,
         // receiver: data.receiver,
@@ -58,11 +65,13 @@ export class NewsfeedGameComponent implements OnInit {
         console.log('Sequence complete');
         const rewardTransactionModel = {
           winner: this.authUser._id,
-          reward: this.running._id,
+          rewardId: this.running._id,
+          rewardName: this.running.name,
         };
-        this.http.post(this.apiUrl + '/service/rewardTransaction', rewardTransactionModel);
-        this.gameEnd = true;
-        alert('Congraduration! You are won the prize: ' + this.running.name);
+        this.http.post(this.apiUrl + '/service/rewardTransaction', rewardTransactionModel).subscribe(() => {
+          this.gameEnd = true;
+          alert('Congraduration! You are won the prize: ' + this.running.name);
+        });
       }),
     );
     // output: 0,1,2,3
