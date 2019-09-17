@@ -14,7 +14,7 @@ export class StaffListComponent implements OnInit {
     { name: 'email' },
     { name: 'phoneNumber' },
   ];
-  filterList = [];
+  // filterList = [];
   actions = [
     { name: 'New Staff', format: 'link', link: '/admin/staff/add', default: true },
   ];
