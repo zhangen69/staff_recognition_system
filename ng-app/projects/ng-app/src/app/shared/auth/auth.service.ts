@@ -90,7 +90,7 @@ export class AuthService {
     clearTimeout(this.tokenTimer);
     this.clearAuthData();
     this.toastr.info('Logged Out!');
-    this.router.navigate(['/']);
+    this.router.navigate(['/auth/login']);
   }
 
   autoAuthUser() {
