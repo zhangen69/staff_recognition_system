@@ -21,6 +21,7 @@ interface IStandardColumn {
   format?: string;
   default?: any;
   template?: any;
+  dateFormat?: string;
 }
 
 export { IStandardFormField, IStandardColumn };
