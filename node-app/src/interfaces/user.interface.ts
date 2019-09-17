@@ -12,6 +12,7 @@ interface IUserRegister {
     phoneNumber: string;
     avatarImageUrl?: string;
     signatureImageUrl?: string;
+    isAdmin?: boolean;
 }
 
 interface IUser {
@@ -22,6 +23,7 @@ interface IUser {
     phoneNumber?: string;
     avatarImageUrl?: string;
     signatureImageUrl?: string;
+    isAdmin?: boolean;
 }
 
 interface IForgotPasswordRequest {

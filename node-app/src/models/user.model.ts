@@ -15,6 +15,7 @@ const schema = new mongoose.Schema({
     lastLoggedIn: { type: Date, default: null },
     accessFailedCount: { type: Number, default: 0 },
     isAccessFailedLocked: { type: Boolean, default: false },
+    isAdmin: { type: Boolean, default: false },
 });
 
 schema.add(auditable);

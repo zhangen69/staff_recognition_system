@@ -108,11 +108,19 @@ router.get('/:id', checkAuth, (req, res) => {
 });
 
 router.post('/', checkAuth, (req, res) => {
-    UserController.register(req.body).then((result: any) => {
-        res.status(result.status).json(result);
-    }).catch((result: any) => {
-        res.status(result.status).json(result);
-    });
+    if (req.body._id) {
+        UserController.update(req.body, req['auth']).then((result: any) => {
+            res.status(result.status).json(result);
+        }).catch((result: any) => {
+            res.status(result.status).json(result);
+        });
+    } else {
+        UserController.register(req.body).then((result: any) => {
+            res.status(result.status).json(result);
+        }).catch((result: any) => {
+            res.status(result.status).json(result);
+        });
+    }
 });
 
 router.put('/', checkAuth, (req, res) => {

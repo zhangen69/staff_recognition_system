@@ -12,6 +12,7 @@ export class UserDTO {
     isAccessFailedLocked: boolean;
     lastLoggedIn: Date;
     audit: any;
+    isAdmin: boolean;
 
     constructor(user) {
         this._id = user._id;
@@ -26,6 +27,7 @@ export class UserDTO {
         this.isAccessFailedLocked = user.isAccessFailedLocked;
         this.lastLoggedIn = user.lastLoggedIn;
         this.audit = user.audit;
+        this.isAdmin = user.isAdmin;
     }
 
 }

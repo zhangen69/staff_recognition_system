@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,12 +11,21 @@ export class StaffFormComponent implements OnInit {
   fields = [
     { name: 'username', type: 'string', required: true },
     { name: 'password', type: 'password', required: true },
+    { name: 'isAdmin', type: 'boolean', required: true },
     { name: 'displayName', type: 'string', required: true },
     { name: 'email', type: 'string', required: true },
     { name: 'phoneNumber', type: 'string', required: true },
   ];
 
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.route.params.subscribe((params) => {
+      if (params['id']) {
+        this.fields.splice(1, 1);
+      }
+    });
+  }
+
+  
 }

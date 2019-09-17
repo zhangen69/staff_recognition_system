@@ -11,6 +11,7 @@ export class StaffListComponent implements OnInit {
   // showDefaultBtn = false;
   columns = [
     { name: 'displayName' },
+    { name: 'isAdmin', format: 'template', template: item => item.isAdmin ? 'Yes' : 'No' },
     { name: 'email' },
     { name: 'phoneNumber' },
     { name: 'audit.createdDate', type: 'date', displayName: 'Audit', filter: false},

@@ -227,6 +227,7 @@ class Controller {
 
     private updateUser(user, model?, message?) {
         return new Promise<any>((resolve, reject) => {
+            console.log('updating...');
             user.updateOne(model, (err, doc) => this.resHandler({ resolve, reject }, { err, res: doc }, { status: 200, message }));
         });
     }
