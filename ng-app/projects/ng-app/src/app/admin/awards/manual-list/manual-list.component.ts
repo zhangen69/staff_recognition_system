@@ -16,6 +16,7 @@ export class ManualListComponent implements OnInit {
     { name: 'receiver.displayName', displayName: 'Receiver' },
     { name: 'bonus', type: 'number' },
     { name: 'message' },
+    { name: 'audit.createdDate', type: 'date', displayName: 'Audit', filter: false},
   ];
   filterList = [];
   actions = [];

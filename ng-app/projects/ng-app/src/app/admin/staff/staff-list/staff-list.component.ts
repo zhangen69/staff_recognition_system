@@ -13,6 +13,7 @@ export class StaffListComponent implements OnInit {
     { name: 'displayName' },
     { name: 'email' },
     { name: 'phoneNumber' },
+    { name: 'audit.createdDate', type: 'date', displayName: 'Audit', filter: false},
   ];
   // filterList = [];
   actions = [

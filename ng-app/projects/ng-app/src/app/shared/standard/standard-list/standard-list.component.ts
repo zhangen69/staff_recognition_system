@@ -26,6 +26,7 @@ export class StandardListComponent implements OnInit, AfterViewInit {
     @Input() queryModel: any;
     @Input() addNewItemLink: string;
     @Input() baseUrl: string;
+    @Input() showActionColumn: boolean;
     @Input()
     set includes(includes: string[]) {
         if (!this.queryModel) {
@@ -69,9 +70,16 @@ export class StandardListComponent implements OnInit, AfterViewInit {
             this.addNewItemLink = '/' + this.domainName + '/add';
         }
 
+        if (this.showActionColumn === undefined) {
+            this.showActionColumn = true;
+        }
+
         this.displayedColumns = this.columns.map(x => x.name);
         this.displayedColumns.unshift('checkbox');
-        this.displayedColumns.push('action');
+
+        if (this.showActionColumn !== false) {
+            this.displayedColumns.push('action');
+        }
 
         this.columns.forEach(column => {
             if (!column.displayName) {
@@ -83,7 +91,9 @@ export class StandardListComponent implements OnInit, AfterViewInit {
             if (!this.filterList) {
                 this.filterList = [];
             }
-            this.filterList.push({ type: column.name, displayName: column.displayName, queryType: (column.type || 'string') });
+            if (column.filter !== false) {
+                this.filterList.push({ type: column.name, displayName: column.displayName, queryType: (column.type || 'string') });
+            }
         });
 
         this.service.getRefreshListerner().subscribe(() => {
