@@ -1,13 +1,13 @@
 <mat-card>
   <mat-card-title></mat-card-title>
   <mat-card-content>
-    <a href="#" class="profile-link">{{ post.audit.createdBy.username }}</a>
+    <a class="profile-link">{{ post.audit.createdBy.displayName }}</a>
     <div class="badge-group">
       <span [matBadge]="'+' + post.bonus" matBadgeOverlap="true"></span>
       <span [matBadge]="getFirstLetter(post.receiver.username)" matBadgeOverlap="true"></span>
     </div>
     <div class="more-info">
-      <span class="duration">{{ lastUpdateDuration }}</span>
+      <span class="duration" [title]="post.audit.createdDate | date: 'hh:mm a, dd MMMM yyyy'">{{ lastUpdateDuration }}</span>
       <!-- <button mat-icon-button>
         <mat-icon>more_horiz</mat-icon>
       </button> -->
