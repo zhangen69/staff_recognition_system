@@ -42,7 +42,7 @@
     </mat-dialog-content>
     <mat-dialog-actions align="end">
         <button mat-button color="primary" (click)="closeDialog('bonus')">OK</button>
-        <button mat-button color="primary" (click)="cancelDialog('bonus')">Cancel</button>
+        <button mat-button color="primary" (click)="cancelDialog()">Cancel</button>
     </mat-dialog-actions>
 </ng-template>
 
@@ -55,16 +55,17 @@
     </mat-dialog-content>
     <mat-dialog-actions align="end">
         <button mat-button color="primary" (click)="closeDialog('receiver')">OK</button>
-        <button mat-button color="primary" (click)="cancelDialog('receiver')">Cancel</button>
+        <button mat-button color="primary" (click)="cancelDialog()">Cancel</button>
     </mat-dialog-actions>
 </ng-template>
 
 <ng-template #hashtag_dialog>
-    <h2 matDialogTitle>Such dialog very wow!</h2>
+    <h2 matDialogTitle>Give the staff some hashtags</h2>
+    <button mat-raised-button (click)="formData.hashtags.push({})">New Hashtag</button>
     <mat-dialog-content>
-        <mat-form-field>
+        <mat-form-field *ngFor="let hashtag of dialogForm.hashtags">
             <mat-label>Hashtag</mat-label>
-            <mat-select [(ngModel)]="dialogForm.hashtag">
+            <mat-select [(ngModel)]="hashtag.name">
                 <mat-option value="collaborator">Collaborator</mat-option>
                 <mat-option value="contributor">Contributor</mat-option>
                 <mat-option value="creativity">Creativity</mat-option>
@@ -95,6 +96,6 @@
     </mat-dialog-content>
     <mat-dialog-actions align="end">
         <button mat-button color="primary" (click)="closeDialog('hashtag')">OK</button>
-        <button mat-button color="primary" (click)="cancelDialog('hashtag')">Cancel</button>
+        <button mat-button color="primary" (click)="cancelDialog()">Cancel</button>
     </mat-dialog-actions>
 </ng-template>

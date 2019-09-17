@@ -56,11 +56,15 @@ export class NewsfeedFormComponent implements OnInit {
   }
 
   closeDialog(prop) {
-    this.formData[prop] = this.dialogForm[prop];
+    if (prop !== 'hashtag') {
+      this.formData[prop] = this.dialogForm[prop];
+    } else {
+      this.formData.hashtags = this.dialogForm.hashtags.map((hashtag) => hashtag.name);
+    }
     this.dialog.closeAll();
   }
 
-  cancelDialog(prop) {
+  cancelDialog() {
     this.dialog.closeAll();
   }
 

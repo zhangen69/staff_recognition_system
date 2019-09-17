@@ -3,6 +3,7 @@ import { checkAuth } from '../middlewares/checkAuth';
 import PointTransaction from '../models/pointTransaction.model';
 import moment from 'moment';
 import { from, forkJoin } from 'rxjs';
+import postModel from '../models/post.model';
 
 const router = express.Router();
 
@@ -50,6 +51,32 @@ router.get('/bonus/leaderboard', checkAuth, (req, res, next) => {
     });
   });
 });
+
+router.get(
+  '/bonus/checkGiveValidation/:receiver',
+  checkAuth,
+  (req, res, next) => {
+    const result: any = {};
+    const sender = req['auth'].user._id;
+    const monthStart = moment().startOf('month').format('YYYY-MM-DD hh:mm');
+    const monthEnd = moment().endOf('month').format('YYYY-MM-DD hh:mm');
+    postModel.find({
+      'receiver': req.params.receiver,
+      'audit.createdBy': sender,
+      'audit.createdDate': { $gte: monthStart, $lt: monthEnd },
+    }).then((docs) => {
+      if (docs.length > 0) {
+        result.valid = false;
+        result.message = 'You are already give the staff before in this month.';
+      } else {
+        result.valid = true;
+      }
+      res.json(result);
+    });
+  },
+);
+
+router.post('/bonus/monthly-give-away', checkAuth, (req, res, next) => {});
 
 const groupByProp = (prop) => {
   return PointTransaction.aggregate([

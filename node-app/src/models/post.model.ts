@@ -16,6 +16,7 @@ const PostSchema = new mongoose.Schema({
     // postedBy: { type: mongoose.Types.ObjectId, ref: 'User' },
     message: { type: String, required: true },
     hashtag: { type: String, required: true },
+    hashtags: { type: [String], required: true },
     bonus: { type: Number, default: 0 },
     // givePointsTo: { type: mongoose.Types.ObjectId, ref: 'User' },
     receiver: { type: mongoose.Types.ObjectId, ref: 'User' },
